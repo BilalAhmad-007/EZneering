@@ -482,9 +482,9 @@
 
 /* Sticky Tool Navigation */
 .sticky-nav {
-    position: sticky;
-    top: 80px;
-    z-index: 10;
+    /* position: sticky; */
+    /* top: 80px; */
+    /* z-index: 10; */
     background: var(--secondary-bg);
     box-shadow: 0 2px 16px rgba(139, 92, 246, 0.08);
     border-radius: var(--border-radius-lg);
@@ -651,9 +651,10 @@
     }
     
     .sticky-nav {
-        top: 60px;
-        padding: 0.5rem 1rem;
-        gap: 0.5rem;
+        position: relative !important;
+        top: auto !important;
+        z-index: auto !important;
+        box-shadow: none !important;
     }
     
     .tab-btn {
@@ -877,8 +878,10 @@
     }
     
     .sticky-nav {
-        padding: 0.4rem 0.75rem;
-        gap: 0.4rem;
+        position: relative !important;
+        top: auto !important;
+        z-index: auto !important;
+        box-shadow: none !important;
     }
     
     .tab-btn {
@@ -2074,26 +2077,26 @@
         font-size: 1rem;
     }
     .tool-nav {
+        display: flex;
+        flex-wrap: nowrap;
         overflow-x: auto;
         white-space: nowrap;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
         margin-bottom: 1rem;
+        padding-left: 0;
+        padding-right: 0;
+        box-sizing: border-box;
     }
     .tool-nav::-webkit-scrollbar {
         display: none;
     }
     .tab-btn {
-        display: inline-block;
+        display: inline-flex;
+        min-width: 120px;
         white-space: nowrap;
         margin-right: 0.5rem;
-    }
-    .tool-section {
-        padding: 1.5rem;
-        margin-bottom: 1.5rem;
-    }
-    .tool-section h2 {
-        font-size: 1.25rem;
+        flex: 0 0 auto;
     }
 }
 
@@ -2102,22 +2105,26 @@
         font-size: 1.75rem;
     }
     .tool-nav {
+        display: flex;
+        flex-wrap: nowrap;
         overflow-x: auto;
         white-space: nowrap;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
         margin-bottom: 1rem;
+        padding-left: 0;
+        padding-right: 0;
+        box-sizing: border-box;
     }
     .tool-nav::-webkit-scrollbar {
         display: none;
     }
     .tab-btn {
-        display: inline-block;
+        display: inline-flex;
+        min-width: 120px;
         white-space: nowrap;
         margin-right: 0.5rem;
-    }
-    .tool-section {
-        padding: 1rem;
+        flex: 0 0 auto;
     }
 }
 
@@ -2312,21 +2319,12 @@
 
 /* Improved K-map result display */
 .kmap-result-section .result-display {
-  font-size: 1.25rem;
-  font-family: 'Fira Mono', 'Consolas', monospace;
-  color: var(--primary-dark, #7c3aed);
-  background: linear-gradient(90deg, var(--primary-light, #a78bfa22) 0%, var(--glass-bg) 100%);
-  border-left: 5px solid var(--primary-color, #8b5cf6);
-  border-radius: var(--border-radius);
-  padding: 1rem 1.5rem;
-  margin-top: 0.7rem;
-  margin-bottom: 0.5rem;
-  box-shadow: 0 2px 8px 0 var(--shadow-sm);
-  word-break: break-all;
-  min-height: 2.2em;
-  display: flex;
-  align-items: center;
-  letter-spacing: 0.02em;
+  background: var(--background) !important;
+  color: var(--text-primary) !important;
+  border-left: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  background-image: none !important;
 }
 .kmap-result-section .result-display .result-text {
   color: var(--primary-dark, #7c3aed);
