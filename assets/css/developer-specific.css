@@ -2074,12 +2074,19 @@
         font-size: 1rem;
     }
     .tool-nav {
-        gap: 0.25rem;
-        margin-bottom: 2rem;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        margin-bottom: 1rem;
+    }
+    .tool-nav::-webkit-scrollbar {
+        display: none;
     }
     .tab-btn {
-        padding: 0.5rem 1rem;
-        font-size: 0.9rem;
+        display: inline-block;
+        white-space: nowrap;
+        margin-right: 0.5rem;
     }
     .tool-section {
         padding: 1.5rem;
@@ -2095,12 +2102,19 @@
         font-size: 1.75rem;
     }
     .tool-nav {
-        flex-direction: column;
-        width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        margin-bottom: 1rem;
+    }
+    .tool-nav::-webkit-scrollbar {
+        display: none;
     }
     .tab-btn {
-        width: 100%;
-        text-align: center;
+        display: inline-block;
+        white-space: nowrap;
+        margin-right: 0.5rem;
     }
     .tool-section {
         padding: 1rem;
