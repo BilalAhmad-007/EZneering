@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Tools - Case Converter, Word Counter & Text Analyzer | EZneering</title>
+    <meta name="description" content="Free online text processing tools including case converter, text analyzer, word counter, text formatter, and grammar checker. Professional text utilities for writers and developers.">
+    <meta name="keywords" content="text tools, case converter, word counter, text analyzer, text formatter, grammar checker, text utilities, online text tools">
+    <meta name="author" content="EZneering">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ezneering.com/tools/text.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ezneering.com/tools/text.html">
+    <meta property="og:title" content="Text Tools - Case Converter, Word Counter & Text Analyzer | EZneering">
+    <meta property="og:description" content="Free online text processing tools including case converter, text analyzer, word counter, text formatter, and grammar checker.">
+    <meta property="og:image" content="https://ezneering.com/assets/images/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ezneering.com/tools/text.html">
+    <meta property="twitter:title" content="Text Tools - Case Converter, Word Counter & Text Analyzer | EZneering">
+    <meta property="twitter:description" content="Free online text processing tools including case converter, text analyzer, word counter, text formatter, and grammar checker.">
+    <meta property="twitter:image" content="https://ezneering.com/assets/images/og-image.jpg">
+    
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Text Tools - EZneering",
+        "description": "Free online text processing tools including case converter, text analyzer, word counter, text formatter, and grammar checker.",
+        "url": "https://ezneering.com/tools/text.html",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "featureList": [
+            "Case Converter",
+            "Text Analyzer",
+            "Word Counter",
+            "Text Formatter",
+            "Text Diff",
+            "Grammar Checker"
+        ]
+    }
+    </script>
+    
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/text-specific.css">
+</head>
+<body>
+    <!-- Header will be loaded here -->
+    <div id="header-container"></div>
+
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb-list">
+                <li class="breadcrumb-item">
+                    <a href="../index.html" class="breadcrumb-link">Home</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="../index.html#tools-section" class="breadcrumb-link">Tools</a>
+                </li>
+                <li class="breadcrumb-item current" aria-current="page">
+                    Text Tools
+                </li>
+            </ol>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="tool-page">
+        <div class="container">
+            <div class="tool-header">
+                <h1 class="tool-page-title">Text Tools</h1>
+                <p class="tool-page-description">Professional text processing tools for converting, analyzing, counting, and formatting text content.</p>
+            </div>
+
+            <!-- Tool Navigation -->
+            <div class="tool-nav">
+                <button class="tab-btn active" data-tab="case-converter">Case Converter</button>
+                <button class="tab-btn" data-tab="text-analyzer">Text Analyzer</button>
+                <button class="tab-btn" data-tab="word-counter">Word Counter</button>
+                <button class="tab-btn" data-tab="text-formatter">Text Formatter</button>
+                <button class="tab-btn" data-tab="text-diff">Text Diff</button>
+                <button class="tab-btn" data-tab="grammar-checker">Grammar Checker</button>
+            </div>
+
+            <!-- Tool Content -->
+            <div class="tool-content">
+                <!-- Case Converter -->
+                <div id="case-converter" class="tab-content active">
+                    <div class="tool-section">
+                        <h2>Case Converter</h2>
+                        <p>Convert text between different cases: UPPERCASE, lowercase, Title Case, and more.</p>
+                        
+                        <div class="text-container">
+                            <div class="input-group">
+                                <label for="case-input">Input Text:</label>
+                                <textarea id="case-input" placeholder="Enter your text here..." rows="8"></textarea>
+                            </div>
+                            
+                            <div class="case-options">
+                                <h3>Case Options</h3>
+                                <div class="case-buttons">
+                                    <button class="btn btn-secondary" onclick="convertCase('uppercase')">UPPERCASE</button>
+                                    <button class="btn btn-secondary" onclick="convertCase('lowercase')">lowercase</button>
+                                    <button class="btn btn-secondary" onclick="convertCase('titlecase')">Title Case</button>
+                                    <button class="btn btn-secondary" onclick="convertCase('sentencecase')">Sentence case</button>
+                                    <button class="btn btn-secondary" onclick="convertCase('camelcase')">camelCase</button>
+                                    <button class="btn btn-secondary" onclick="convertCase('pascalcase')">PascalCase</button>
+                                    <button class="btn btn-secondary" onclick="convertCase('snakecase')">snake_case</button>
+                                    <button class="btn btn-secondary" onclick="convertCase('kebabcase')">kebab-case</button>
+                                </div>
+                                <button class="btn btn-primary" onclick="clearText()">Clear Text</button>
+                            </div>
+                            
+                            <div class="result-display" id="case-result"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Analyzer -->
+                <div id="text-analyzer" class="tab-content">
+                    <div class="tool-section">
+                        <h2>Text Analyzer</h2>
+                        <p>Analyze text for character count, word frequency, readability scores, and more.</p>
+                        
+                        <div class="text-container">
+                            <div class="input-group">
+                                <label for="analyzer-input">Input Text:</label>
+                                <textarea id="analyzer-input" placeholder="Enter text to analyze..." rows="8"></textarea>
+                            </div>
+                            
+                            <div class="analyzer-options">
+                                <h3>Analysis Options</h3>
+                                <div class="option-group">
+                                    <label>
+                                        <input type="checkbox" id="analyze-characters" checked>
+                                        Character analysis
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" id="analyze-words" checked>
+                                        Word analysis
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" id="analyze-sentences" checked>
+                                        Sentence analysis
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" id="analyze-readability" checked>
+                                        Readability scores
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" id="analyze-frequency" checked>
+                                        Word frequency
+                                    </label>
+                                </div>
+                                <button class="btn btn-primary" onclick="analyzeText()">Analyze Text</button>
+                            </div>
+                            
+                            <div class="result-display" id="analyzer-result"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Word Counter -->
+                <div id="word-counter" class="tab-content">
+                    <div class="tool-section">
+                        <h2>Word Counter</h2>
+                        <p>Count words, characters, sentences, and paragraphs in your text with detailed statistics.</p>
+                        
+                        <div class="text-container">
+                            <div class="input-group">
+                                <label for="counter-input">Input Text:</label>
+                                <textarea id="counter-input" placeholder="Enter text to count..." rows="8"></textarea>
+                            </div>
+                            
+                            <div class="counter-options">
+                                <h3>Count Options</h3>
+                                <div class="option-group count-option-row">
+                                    <label><input type="checkbox" id="count-spaces" checked> Include spaces</label>
+                                    <label><input type="checkbox" id="count-punctuation" checked> Include punctuation</label>
+                                    <label><input type="checkbox" id="count-numbers"> Count numbers separately</label>
+                                    <label><input type="checkbox" id="count-unique-words"> Count unique words</label>
+                                </div>
+                                <div class="count-btn-row">
+                                    <button class="btn btn-primary" onclick="countWords()">Count Words</button>
+                                </div>
+                            </div>
+                            
+                            <div class="result-display" id="counter-result"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Formatter -->
+                <div id="text-formatter" class="tab-content">
+                    <div class="tool-section">
+                        <h2>Text Formatter</h2>
+                        <p>Format text with proper spacing, indentation, line breaks, and other formatting options.</p>
+                        
+                        <div class="text-container">
+                            <div class="input-group">
+                                <label for="formatter-input">Input Text:</label>
+                                <textarea id="formatter-input" placeholder="Enter text to format..." rows="8"></textarea>
+                            </div>
+                            
+                            <div class="formatter-options">
+                                <h3>Formatting Options</h3>
+                                <div class="format-buttons">
+                                    <button class="btn btn-secondary" onclick="formatText('remove-extra-spaces')">Remove Extra Spaces</button>
+                                    <button class="btn btn-secondary" onclick="formatText('proper-indentation')">Proper Indentation</button>
+                                    <button class="btn btn-secondary" onclick="formatText('line-breaks')">Add Line Breaks</button>
+                                    <button class="btn btn-secondary" onclick="formatText('remove-line-breaks')">Remove Line Breaks</button>
+                                    <button class="btn btn-secondary" onclick="formatText('capitalize-sentences')">Capitalize Sentences</button>
+                                    <button class="btn btn-secondary" onclick="formatText('remove-duplicates')">Remove Duplicates</button>
+                                    <button class="btn btn-secondary" onclick="formatText('sort-lines')">Sort Lines</button>
+                                    <button class="btn btn-secondary" onclick="formatText('reverse-text')">Reverse Text</button>
+                                </div>
+                                <div class="custom-format">
+                                    <label for="custom-format-input">Custom Format:</label>
+                                    <input type="text" id="custom-format-input" placeholder="Enter custom format pattern...">
+                                    <button class="btn btn-primary" onclick="applyCustomFormat()">Apply Custom Format</button>
+                                </div>
+                            </div>
+                            
+                            <div class="result-display" id="formatter-result"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Diff -->
+                <div id="text-diff" class="tab-content">
+                    <div class="tool-section">
+                        <h2>Text Diff</h2>
+                        <p>Compare two texts and highlight the differences between them.</p>
+                        
+                        <div class="text-container">
+                            <div class="diff-inputs">
+                                <div class="input-group">
+                                    <label for="diff-text1">Original Text:</label>
+                                    <textarea id="diff-text1" placeholder="Enter original text..." rows="6"></textarea>
+                                </div>
+                                <div class="input-group">
+                                    <label for="diff-text2">Modified Text:</label>
+                                    <textarea id="diff-text2" placeholder="Enter modified text..." rows="6"></textarea>
+                                </div>
+                            </div>
+                            
+                            <div class="diff-options">
+                                <h3>Diff Options</h3>
+                                <div class="option-group">
+                                    <label>
+                                        <input type="checkbox" id="ignore-case" checked>
+                                        Ignore case differences
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" id="ignore-whitespace" checked>
+                                        Ignore whitespace differences
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" id="ignore-line-endings">
+                                        Ignore line ending differences
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" id="show-line-numbers">
+                                        Show line numbers
+                                    </label>
+                                </div>
+                                <button class="btn btn-primary" onclick="compareTexts()">Compare Texts</button>
+                            </div>
+                            
+                            <div class="result-display" id="diff-result"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grammar Checker -->
+                <div id="grammar-checker" class="tab-content">
+                    <div class="tool-section">
+                        <h2>Grammar Checker</h2>
+                        <p>Check your text for grammar, spelling, and punctuation errors. Get suggestions to improve your writing.</p>
+                        <div class="text-container">
+                            <div class="input-group">
+                                <label for="grammar-input">Input Text:</label>
+                                <textarea id="grammar-input" placeholder="Enter text to check grammar..." rows="8"></textarea>
+                            </div>
+                            <div class="grammar-options">
+                                <button class="btn btn-primary" onclick="checkGrammar()">Check Grammar</button>
+                            </div>
+                            <div class="result-display" id="grammar-result"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer will be loaded here -->
+    <div id="footer-container"></div>
+
+    <!-- JavaScript -->
+    <script src="../assets/js/tools.js"></script>
+    <script src="../assets/js/text.js"></script>
+</body>
+</html> 

@@ -1,0 +1,237 @@
+/* Resume Builder Tool Styles */
+
+.resume-builder-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 2rem;
+}
+
+.resume-form-panel {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: 2rem 1.5rem;
+    min-width: 320px;
+    max-width: 400px;
+    flex: 1 1 350px;
+    backdrop-filter: blur(20px);
+}
+
+.resume-form-panel h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+}
+
+.resume-form-panel label {
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 0.3rem;
+    display: block;
+}
+
+.resume-form-panel input,
+.resume-form-panel textarea {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius);
+    background: var(--background);
+    color: var(--text-primary);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    font-family: inherit;
+    transition: border 0.2s;
+}
+
+.resume-form-panel input:focus,
+.resume-form-panel textarea:focus {
+    border-color: var(--accent-color);
+    outline: none;
+}
+
+.resume-form-panel .form-group {
+    margin-bottom: 1.2rem;
+}
+
+.resume-form-panel .add-btn,
+.resume-form-panel .remove-btn {
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 0.4rem 1rem;
+    font-size: 0.95rem;
+    cursor: pointer;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.resume-form-panel .add-btn:hover,
+.resume-form-panel .remove-btn:hover {
+    background: var(--gradient-secondary);
+    transform: scale(1.05);
+}
+
+.resume-form-panel .remove-btn {
+    background: var(--error-bg);
+    color: var(--error-text);
+}
+
+.resume-form-panel .remove-btn:hover {
+    background: var(--error-bg-dark);
+    color: var(--error-text-dark);
+}
+
+.resume-form-panel .download-btn {
+    width: 100%;
+    margin-top: 1.5rem;
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius-lg);
+    padding: 0.9rem 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: var(--shadow-md);
+    transition: background 0.2s, transform 0.2s;
+}
+
+.resume-form-panel .download-btn:hover {
+    background: var(--gradient-secondary);
+    transform: translateY(-2px) scale(1.03);
+}
+
+/* Resume Preview Styles */
+.resume-preview-panel {
+    background: white;
+    border: 1.5px solid var(--glass-border);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 4px 32px rgba(0,0,0,0.08), 0 1.5px 6px rgba(139,92,246,0.07);
+    padding: 2.5rem 2.2rem;
+    min-width: 340px;
+    max-width: 600px;
+    flex: 2 1 500px;
+    margin-bottom: 2rem;
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+    color: #222;
+    position: relative;
+}
+
+.resume-preview-panel .resume-name {
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 0.2rem;
+    letter-spacing: 0.5px;
+}
+
+.resume-preview-panel .resume-contact {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1.2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+}
+
+.resume-preview-panel .resume-section {
+    margin-bottom: 1.5rem;
+}
+
+.resume-preview-panel .resume-section-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    margin-bottom: 0.7rem;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.2rem;
+}
+
+.resume-preview-panel .resume-summary {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 1.2rem;
+    line-height: 1.6;
+}
+
+.resume-preview-panel .resume-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.resume-preview-panel .resume-list li {
+    margin-bottom: 0.7rem;
+    font-size: 1rem;
+    color: #222;
+}
+
+.resume-preview-panel .resume-job-title {
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 1.05rem;
+}
+
+.resume-preview-panel .resume-date {
+    color: #888;
+    font-size: 0.95rem;
+    margin-left: 0.5rem;
+}
+
+.resume-preview-panel .resume-skill {
+    display: inline-block;
+    background: var(--gradient-primary);
+    color: white;
+    border-radius: 1.2em;
+    padding: 0.3em 1em;
+    font-size: 0.95rem;
+    margin: 0.2em 0.4em 0.2em 0;
+    box-shadow: 0 1px 4px rgba(139,92,246,0.08);
+}
+
+/* Responsive Design */
+@media (max-width: 1100px) {
+    .resume-builder-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .resume-preview-panel {
+        margin: 0 auto 2rem auto;
+    }
+}
+
+@media (max-width: 700px) {
+    .resume-form-panel, .resume-preview-panel {
+        min-width: 100%;
+        max-width: 100%;
+        padding: 1.2rem 0.7rem;
+    }
+    .resume-preview-panel {
+        font-size: 0.98rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .resume-builder-container {
+        gap: 1rem;
+    }
+    .resume-form-panel, .resume-preview-panel {
+        padding: 0.7rem 0.2rem;
+    }
+    .resume-preview-panel .resume-name {
+        font-size: 1.3rem;
+    }
+}
+
+.tool-page {
+    margin-top: 80px;
+} 

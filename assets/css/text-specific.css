@@ -1,0 +1,612 @@
+/* Text Tools Specific Styles */
+
+/* Text Input Styles */
+.text-input {
+    width: 100%;
+    min-height: 200px;
+    padding: 1rem;
+    background: var(--background);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius);
+    color: var(--text-primary);
+    font-size: 1rem;
+    line-height: 1.6;
+    resize: vertical;
+    font-family: inherit;
+    transition: var(--transition);
+}
+
+.text-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.text-input::placeholder {
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+/* Text Analysis Results */
+.analysis-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.analysis-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.analysis-item {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    text-align: center;
+    backdrop-filter: blur(20px);
+}
+
+.analysis-label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.analysis-value {
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* Word Counter Styles */
+.counter-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.counter-options {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius-lg);
+    padding: 1.5rem;
+    backdrop-filter: blur(20px);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.counter-option {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.counter-option input[type="checkbox"] {
+    accent-color: var(--primary-color);
+    width: 18px;
+    height: 18px;
+}
+
+.counter-option label {
+    color: var(--text-primary);
+    cursor: pointer;
+}
+
+/* Text Case Converter */
+.case-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.case-options {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.case-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.case-buttons .btn {
+    min-width: 120px;
+    margin-bottom: 0.5rem;
+}
+
+.case-btn {
+    padding: 0.75rem 1rem;
+    background: var(--background);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.case-btn:hover {
+    background: var(--glass-hover);
+    border-color: var(--primary-color);
+    transform: translateY(-1px);
+}
+
+.case-btn.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* Result Section Improvements */
+.result-display {
+    margin-top: 2rem;
+    padding: 1.5rem 1rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-sm);
+    min-height: 80px;
+    transition: box-shadow 0.3s;
+}
+
+.result-display textarea {
+    width: 100%;
+    min-height: 120px;
+    background: var(--background);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius);
+    color: var(--text-primary);
+    font-size: 1rem;
+    padding: 1rem;
+    margin-top: 1rem;
+    resize: vertical;
+}
+
+.result-display .success-message h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+}
+
+.result-display .btn {
+    margin-top: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .text-input {
+        min-height: 150px;
+    }
+    
+    .analysis-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .counter-options {
+        grid-template-columns: 1fr;
+    }
+    
+    .case-buttons {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .analysis-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .case-buttons {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- Restored Shared Styles for Text Tool --- */
+.tool-page {
+    min-height: calc(100vh - 160px);
+    padding: 2rem 0;
+}
+
+.tool-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.tool-page-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.tool-page-description {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.tool-nav {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    padding: 0.75rem 1.5rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: 500;
+    backdrop-filter: blur(20px);
+}
+
+.tab-btn:hover {
+    background: var(--glass-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+}
+
+.tab-btn.active {
+    background: var(--gradient-primary);
+    color: white;
+    border-color: transparent;
+    box-shadow: var(--shadow-md);
+}
+
+.tool-content {
+    position: relative;
+}
+
+.tab-content {
+    display: none;
+    animation: fadeInUp 0.3s ease-out;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.tool-section {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius-lg);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    backdrop-filter: blur(20px);
+    box-shadow: var(--shadow-sm);
+}
+
+.tool-section h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.tool-section p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.input-group label {
+    font-weight: 500;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea {
+    padding: 0.75rem 1rem;
+    background: var(--background);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius);
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.input-group input::placeholder {
+    color: var(--text-muted);
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 0.9rem;
+}
+
+.btn-primary {
+    background: var(--gradient-primary);
+    color: white;
+    box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    background: var(--gradient-secondary);
+}
+
+.btn-secondary {
+    background: var(--glass-bg);
+    color: var(--text-primary);
+    border: 1px solid var(--glass-border);
+}
+
+.btn-secondary:hover {
+    background: var(--glass-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+}
+
+@media (max-width: 768px) {
+    .tool-page {
+        padding: 1rem 0;
+    }
+    .tool-page-title {
+        font-size: 2rem;
+    }
+    .tool-page-description {
+        font-size: 1rem;
+    }
+    .tool-nav {
+        gap: 0.25rem;
+        margin-bottom: 2rem;
+    }
+    .tab-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+    .tool-section {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    .tool-section h2 {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .tool-page-title {
+        font-size: 1.75rem;
+    }
+    .tool-nav {
+        flex-direction: column;
+        width: 100%;
+    }
+    .tab-btn {
+        width: 100%;
+        text-align: center;
+    }
+    .tool-section {
+        padding: 1rem;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* --- End of Restored Shared Styles --- */
+
+/* --- Improved Count Option Styles for Word Counter --- */
+.count-option-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    margin-bottom: 1rem;
+}
+
+.count-option-card {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: var(--glass-bg);
+    border: 1.2px solid var(--glass-border);
+    border-radius: var(--border-radius);
+    padding: 0.5rem 0.9rem;
+    font-size: 0.97rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: box-shadow 0.2s, border-color 0.2s, background 0.2s;
+    box-shadow: var(--shadow-sm);
+    min-width: 120px;
+    user-select: none;
+}
+
+.count-option-card:hover, .count-option-card:focus-within {
+    border-color: var(--primary-color);
+    background: var(--glass-hover);
+    box-shadow: var(--shadow-md);
+}
+
+.count-option-card input[type="checkbox"] {
+    accent-color: var(--primary-color);
+    width: 18px;
+    height: 18px;
+    margin-right: 0.3rem;
+}
+
+.count-option-icon {
+    font-size: 1.05rem;
+    color: var(--accent-color);
+    margin-right: 0.15rem;
+}
+
+@media (max-width: 600px) {
+    .count-option-group {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .count-option-card {
+        min-width: 0;
+        width: 100%;
+        justify-content: flex-start;
+    }
+}
+/* --- End Improved Count Option Styles --- */
+
+.count-option-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    justify-content: flex-start;
+    margin-bottom: 1rem;
+}
+.count-option-row label {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.98rem;
+    color: var(--text-primary);
+    font-weight: 500;
+    cursor: pointer;
+    user-select: none;
+}
+.count-option-row input[type="checkbox"] {
+    accent-color: var(--primary-color);
+    width: 16px;
+    height: 16px;
+}
+.count-btn-row {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.5rem;
+}
+@media (max-width: 600px) {
+    .count-option-row {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .count-btn-row {
+        justify-content: flex-start;
+    }
+}
+
+/* --- Improved Text Formatter UI --- */
+.formatter-options {
+    margin-top: 1.2rem;
+}
+.format-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem 1.1rem;
+    margin-bottom: 1.2rem;
+}
+.format-buttons .btn {
+    min-width: 140px;
+    font-size: 0.97rem;
+    padding: 0.6rem 1.1rem;
+    border-radius: var(--border-radius);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--text-primary);
+    transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+.format-buttons .btn:hover {
+    background: var(--glass-hover);
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-sm);
+}
+.custom-format {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin-top: 0.5rem;
+}
+.custom-format label {
+    font-weight: 500;
+    color: var(--text-primary);
+    font-size: 0.97rem;
+}
+.custom-format input[type="text"] {
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--glass-border);
+    background: var(--background);
+    color: var(--text-primary);
+    font-size: 0.97rem;
+    transition: border-color 0.2s;
+}
+.custom-format input[type="text"]:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+.custom-format .btn {
+    padding: 0.5rem 1.1rem;
+    font-size: 0.97rem;
+}
+#formatter-result.result-display {
+    margin-top: 1.5rem;
+    padding: 1.2rem 1rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-sm);
+    min-height: 60px;
+    transition: box-shadow 0.3s;
+}
+@media (max-width: 700px) {
+    .format-buttons {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .custom-format {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+    }
+}
+/* --- End Improved Text Formatter UI --- */
+
+/* --- Text Diff Navigation Styles --- */
+/* (Remove all styles in this block) */
+/* --- End Text Diff Navigation Styles --- */ 

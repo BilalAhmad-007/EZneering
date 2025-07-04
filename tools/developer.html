@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Tools - Programming Language Converters & Code Utilities | EZneering</title>
+    <meta name="description" content="Free online developer tools including programming language converters, expression trees, normalization checkers, NFA to DFA converter, K-map solver, and more. Professional tools for developers and students.">
+    <meta name="keywords" content="developer tools, programming converter, code converter, expression tree, normalization checker, NFA DFA converter, K-map solver, programming utilities, code utilities">
+    <meta name="author" content="EZneering">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ezneering.com/tools/developer.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ezneering.com/tools/developer.html">
+    <meta property="og:title" content="Developer Tools - Programming Language Converters & Code Utilities | EZneering">
+    <meta property="og:description" content="Free online developer tools including programming language converters, expression trees, normalization checkers, and more.">
+    <meta property="og:image" content="https://ezneering.com/assets/images/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ezneering.com/tools/developer.html">
+    <meta property="twitter:title" content="Developer Tools - Programming Language Converters & Code Utilities | EZneering">
+    <meta property="twitter:description" content="Free online developer tools including programming language converters, expression trees, normalization checkers, and more.">
+    <meta property="twitter:image" content="https://ezneering.com/assets/images/og-image.jpg">
+    
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Developer Tools - EZneering",
+        "description": "Free online developer tools including programming language converters, expression trees, normalization checkers, and more.",
+        "url": "https://ezneering.com/tools/developer.html",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "featureList": [
+            "Programming Language Converter",
+            "Expression Notation Converter",
+            "Expression Tree Visualizer",
+            "BST Converter",
+            "Normalization Checker",
+            "NFA to DFA Converter",
+            "K-map Solver"
+        ]
+    }
+    </script>
+    
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/developer-specific.css">
+</head>
+<body>
+    <!-- Header will be loaded here -->
+    <div id="header-container"></div>
+
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb-list">
+                <li class="breadcrumb-item">
+                    <a href="../index.html" class="breadcrumb-link">Home</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="../index.html#tools-section" class="breadcrumb-link">Tools</a>
+                </li>
+                <li class="breadcrumb-item current" aria-current="page">
+                    Developer Tools
+                </li>
+            </ol>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="tool-page">
+        <div class="container">
+            <div class="tool-header">
+                <h1 class="tool-page-title">Developer Tools</h1>
+                <p class="tool-page-description">Professional tools for developers, including language converters, expression trees, and database utilities.</p>
+            </div>
+
+            <!-- Tool Navigation -->
+            <div class="tool-nav sticky-nav">
+                <button class="tab-btn active" data-tab="language-converter" title="Programming Language Converter">
+                    <span class="tab-icon">&#128187;</span> Language Converter
+                </button>
+                <button class="tab-btn" data-tab="expression-converter" title="Expression Notation Converter">
+                    <span class="tab-icon">&#8505;</span> Expression Converter
+                </button>
+                <button class="tab-btn" data-tab="expression-tree" title="Expression Tree Visualizer">
+                    <span class="tab-icon">&#127794;</span> Expression Tree
+                </button>
+                <button class="tab-btn" data-tab="bst-converter" title="BST Converter">
+                    <span class="tab-icon">&#128451;</span> BST Converter
+                </button>
+                <button class="tab-btn" data-tab="normalization" title="Normalization Checker">
+                    <span class="tab-icon">&#9881;</span> Normalization
+                </button>
+                <button class="tab-btn" data-tab="nfa-dfa" title="NFA to DFA Converter">
+                    <span class="tab-icon">&#128209;</span> NFA to DFA
+                </button>
+                <button class="tab-btn" data-tab="kmap-solver" title="K-map Solver">
+                    <span class="tab-icon">&#128202;</span> K-map Solver
+                </button>
+            </div>
+
+            <!-- Tool Content -->
+            <div class="tool-content">
+                <!-- Programming Language Converter -->
+                <div id="language-converter" class="tab-content active">
+                    <div class="tool-section card-panel">
+                        <h2>Programming Language Converter</h2>
+                        <p>Convert code between different programming languages with intelligent syntax conversion and real-time preview.</p>
+                        
+                        <div class="converter-container">
+                            <div class="input-section">
+                                <div class="language-header">
+                                    <label for="source-language">Source Language:</label>
+                                    <select id="source-language" class="language-select">
+                                        <option value="python">🐍 Python</option>
+                                        <option value="javascript">⚡ JavaScript</option>
+                                        <option value="java">☕ Java</option>
+                                        <option value="cpp">⚙️ C++</option>
+                                        <option value="csharp">🔷 C#</option>
+                                        <option value="php">🐘 PHP</option>
+                                        <option value="ruby">💎 Ruby</option>
+                                        <option value="go">🚀 Go</option>
+                                        <option value="rust">🦀 Rust</option>
+                                        <option value="swift">🍎 Swift</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="code-container">
+                                    <div class="code-header">
+                                        <span class="code-label">Source Code</span>
+                                        <div class="code-actions">
+                                            <button class="code-action-btn" id="clear-source" title="Clear code">
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                    <path d="M3 6h18"></path>
+                                                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
+                                                    <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                                                </svg>
+                                            </button>
+                                            <button class="code-action-btn" id="copy-source" title="Copy code to clipboard">
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <textarea id="source-code" class="code-editor" placeholder="Enter your code here...&#10;&#10;Example:&#10;def hello_world():&#10;    print('Hello, World!')&#10;    return True"></textarea>
+                                </div>
+                            </div>
+                            
+                            <div class="convert-btn-container">
+                                <button id="convert-btn" class="btn btn-primary convert-btn" title="Convert code">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M7 17l9.2-9.2"></path>
+                                        <path d="M17 17V7H7"></path>
+                                    </svg>
+                                    Convert
+                                </button>
+                                <button id="reset-btn" class="btn btn-secondary" title="Reset all fields">Reset</button>
+                                <div class="conversion-status" id="conversion-status"></div>
+                            </div>
+                            
+                            <div class="output-section">
+                                <div class="language-header">
+                                    <label for="target-language">Target Language:</label>
+                                    <select id="target-language" class="language-select">
+                                        <option value="javascript">⚡ JavaScript</option>
+                                        <option value="python">🐍 Python</option>
+                                        <option value="java">☕ Java</option>
+                                        <option value="cpp">⚙️ C++</option>
+                                        <option value="csharp">🔷 C#</option>
+                                        <option value="php">🐘 PHP</option>
+                                        <option value="ruby">💎 Ruby</option>
+                                        <option value="go">🚀 Go</option>
+                                        <option value="rust">🦀 Rust</option>
+                                        <option value="swift">🍎 Swift</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="code-container">
+                                    <div class="code-header">
+                                        <span class="code-label">Converted Code</span>
+                                        <div class="code-actions">
+                                            <button class="code-action-btn" id="copy-output" title="Copy converted code to clipboard">
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                                </svg>
+                                            </button>
+                                            <button class="code-action-btn" id="download-output" title="Download converted code">
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                                    <polyline points="7,10 12,15 17,10"></polyline>
+                                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <textarea id="converted-code" class="code-editor" readonly placeholder="Converted code will appear here..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Code Templates -->
+                        <div class="templates-section">
+                            <h3>Quick Templates</h3>
+                            <div class="template-grid">
+                                <button class="template-btn" data-template="hello-world">Hello World</button>
+                                <button class="template-btn" data-template="fibonacci">Fibonacci</button>
+                                <button class="template-btn" data-template="sort-array">Sort Array</button>
+                                <button class="template-btn" data-template="class-example">Class Example</button>
+                                <button class="template-btn" data-template="file-io">File I/O</button>
+                                <button class="template-btn" data-template="http-request">HTTP Request</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Expression Converter -->
+                <div id="expression-converter" class="tab-content">
+                    <div class="tool-section card-panel">
+                        <h2>Expression Notation Converter</h2>
+                        <p>Convert mathematical expressions between different notations: Infix, Postfix, and Prefix.</p>
+                        
+                        <div class="expression-container">
+                            <!-- Input Section -->
+                            <div class="input-section">
+                                <h3>Input Expression</h3>
+                                <div class="input-group">
+                                    <label for="input-expression-type">Expression Type:</label>
+                                    <select id="input-expression-type" class="expression-select">
+                                        <option value="infix">Infix (e.g., A+B*C)</option>
+                                        <option value="postfix">Postfix (e.g., A B C * +)</option>
+                                        <option value="prefix">Prefix (e.g., +A*BC)</option>
+                                    </select>
+                                </div>
+                                <div class="input-group">
+                                    <label for="expression-input">Enter Expression:</label>
+                                    <input type="text" id="expression-input" class="expression-input" placeholder="Enter your expression here...">
+                                </div>
+                            </div>
+                            
+                            <!-- Conversion Section -->
+                            <div class="conversion-section">
+                                <div class="input-group">
+                                    <label for="output-expression-type">Convert To:</label>
+                                    <select id="output-expression-type" class="expression-select">
+                                        <option value="postfix">Postfix Notation</option>
+                                        <option value="prefix">Prefix Notation</option>
+                                        <option value="infix">Infix Notation</option>
+                                    </select>
+                                </div>
+                                <button id="convert-expression-btn" class="btn btn-primary convert-btn">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M7 17l9.2-9.2"></path>
+                                        <path d="M17 17V7H7"></path>
+                                    </svg>
+                                    Convert Expression
+                                </button>
+                            </div>
+                            
+                            <!-- Result Section -->
+                            <div class="result-section">
+                                <h3>Converted Expression:</h3>
+                                <div id="expression-result" class="result-display">
+                                    <div class="result-placeholder">Converted expression will appear here...</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Examples Section -->
+                            <div class="examples-section">
+                                <h3>Quick Examples</h3>
+                                <div class="example-grid">
+                                    <div class="example-item" data-input-type="infix" data-output-type="postfix" data-expression="A+B*C">
+                                        <span class="example-label">Infix → Postfix</span>
+                                        <span class="example-expr">A+B*C</span>
+                                    </div>
+                                    <div class="example-item" data-input-type="infix" data-output-type="prefix" data-expression="A+B*C">
+                                        <span class="example-label">Infix → Prefix</span>
+                                        <span class="example-expr">A+B*C</span>
+                                    </div>
+                                    <div class="example-item" data-input-type="postfix" data-output-type="infix" data-expression="A B C * +">
+                                        <span class="example-label">Postfix → Infix</span>
+                                        <span class="example-expr">A B C * +</span>
+                                    </div>
+                                    <div class="example-item" data-input-type="prefix" data-output-type="infix" data-expression="+A*BC">
+                                        <span class="example-label">Prefix → Infix</span>
+                                        <span class="example-expr">+A*BC</span>
+                                    </div>
+                                    <div class="example-item" data-input-type="prefix" data-output-type="postfix" data-expression="+A*BC">
+                                        <span class="example-label">Prefix → Postfix</span>
+                                        <span class="example-expr">+A*BC</span>
+                                    </div>
+                                    <div class="example-item" data-input-type="postfix" data-output-type="prefix" data-expression="A B C * +">
+                                        <span class="example-label">Postfix → Prefix</span>
+                                        <span class="example-expr">A B C * +</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Expression Tree Generator -->
+                <div id="expression-tree" class="tab-content">
+                    <div class="tool-section card-panel">
+                        <h2>Expression Tree Generator</h2>
+                        <p>Generate and visualize expression trees from mathematical expressions in infix notation.</p>
+                        <div class="tree-container">
+                            <div class="input-section">
+                                <h3>Input Expression</h3>
+                                <div class="input-group">
+                                    <label for="tree-expression">Enter Infix Expression:</label>
+                                    <input type="text" id="tree-expression" class="expression-input" placeholder="e.g., A+B*C">
+                                </div>
+                                <div class="tree-controls">
+                                    <button id="generate-tree-btn" class="btn btn-primary" title="Generate expression tree">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M9 11H1l8-8 8 8h-8v8z"></path>
+                                        </svg>
+                                        Generate Tree
+                                    </button>
+                                    <button id="clear-tree-btn" class="btn btn-secondary" title="Clear tree visualization">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M3 6h18"></path>
+                                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
+                                            <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                                        </svg>
+                                        Clear
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- Add zoom controls above visualization section -->
+                            <div class="tree-controls" style="justify-content: flex-end; margin-bottom: 1rem;">
+                                <button id="zoom-in-btn" class="btn btn-secondary" title="Zoom In">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <line x1="12" y1="8" x2="12" y2="16"></line>
+                                        <line x1="8" y1="12" x2="16" y2="12"></line>
+                                    </svg>
+                                    Zoom In
+                                </button>
+                                <button id="zoom-out-btn" class="btn btn-secondary" title="Zoom Out">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <line x1="8" y1="12" x2="16" y2="12"></line>
+                                    </svg>
+                                    Zoom Out
+                                </button>
+                                <button id="reset-view-btn" class="btn btn-secondary" title="Reset Zoom">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <polyline points="12 8 8 12 12 16"></polyline>
+                                        <line x1="16" y1="12" x2="8" y2="12"></line>
+                                    </svg>
+                                    Reset View
+                                </button>
+                            </div>
+                            <div class="tree-visualization-section">
+                                <h3 class="visualization-title">Tree Visualization</h3>
+                                <div class="tree-visualization">
+                                    <div class="canvas-container">
+                                        <canvas id="tree-canvas" width="1000" height="600"></canvas>
+                                        <div class="canvas-placeholder" id="canvas-placeholder">
+                                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M9 11H1l8-8 8 8h-8v8z"></path>
+                                            </svg>
+                                            <p>Enter an expression and click \"Generate Tree\" to visualize</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tree-info">
+                                    <h3>Tree Information</h3>
+                                    <div id="tree-info" class="info-display">
+                                        <div class="info-placeholder">
+                                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <circle cx="12" cy="12" r="10"></circle>
+                                                <path d="M12 16v-4"></path>
+                                                <path d="M12 8h.01"></path>
+                                            </svg>
+                                            <p>Tree information will appear here...</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="examples-section">
+                                <h3>Quick Examples</h3>
+                                <div class="example-grid">
+                                    <div class="example-item" data-expression="A+B*C">
+                                        <span class="example-label">Simple Expression</span>
+                                        <span class="example-expr">A+B*C</span>
+                                    </div>
+                                    <div class="example-item" data-expression="(A+B)*C">
+                                        <span class="example-label">With Parentheses</span>
+                                        <span class="example-expr">(A+B)*C</span>
+                                    </div>
+                                    <div class="example-item" data-expression="A*B+C*D">
+                                        <span class="example-label">Multiple Operations</span>
+                                        <span class="example-expr">A*B+C*D</span>
+                                    </div>
+                                    <div class="example-item" data-expression="A+B+C">
+                                        <span class="example-label">Chain Addition</span>
+                                        <span class="example-expr">A+B+C</span>
+                                    </div>
+                                    <div class="example-item" data-expression="A^B+C">
+                                        <span class="example-label">With Exponentiation</span>
+                                        <span class="example-expr">A^B+C</span>
+                                    </div>
+                                    <div class="example-item" data-expression="(A+B)*(C+D)">
+                                        <span class="example-label">Complex Expression</span>
+                                        <span class="example-expr">(A+B)*(C+D)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BST Converter -->
+                <div id="bst-converter" class="tab-content">
+                    <div class="tool-section card-panel">
+                        <h2>Binary Search Tree Generator</h2>
+                        <p>Convert a list of integers into a binary search tree and visualize it.</p>
+                        <div class="bst-container">
+                            <div class="input-section">
+                                <h3>Input Numbers</h3>
+                                <div class="input-group">
+                                    <label for="bst-input">Enter Numbers (comma-separated):</label>
+                                    <input type="text" id="bst-input" class="bst-input expression-input" placeholder="e.g., 5,3,7,1,9,4,6">
+                                </div>
+                                <div class="tree-controls">
+                                    <button id="create-bst-btn" class="btn btn-primary">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M9 11H1l8-8 8 8h-8v8z"></path>
+                                        </svg>
+                                        Create BST
+                                    </button>
+                                    <button id="clear-bst-btn" class="btn btn-secondary" type="button">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M3 6h18"></path>
+                                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
+                                            <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                                        </svg>
+                                        Clear
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- Zoom controls above visualization section -->
+                            <div class="tree-controls" style="justify-content: flex-end; margin-bottom: 1rem;">
+                                <button id="bst-zoom-in-btn" class="btn btn-secondary" title="Zoom In">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <line x1="12" y1="8" x2="12" y2="16"></line>
+                                        <line x1="8" y1="12" x2="16" y2="12"></line>
+                                    </svg>
+                                    Zoom In
+                                </button>
+                                <button id="bst-zoom-out-btn" class="btn btn-secondary" title="Zoom Out">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <line x1="8" y1="12" x2="16" y2="12"></line>
+                                    </svg>
+                                    Zoom Out
+                                </button>
+                                <button id="bst-reset-view-btn" class="btn btn-secondary" title="Reset Zoom">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <polyline points="12 8 8 12 12 16"></polyline>
+                                        <line x1="16" y1="12" x2="8" y2="12"></line>
+                                    </svg>
+                                    Reset View
+                                </button>
+                            </div>
+                            <div class="tree-visualization-section">
+                                <h3 class="visualization-title">Tree Visualization</h3>
+                                <div class="tree-visualization">
+                                    <div class="canvas-container">
+                                        <canvas id="bst-canvas" width="1000" height="600"></canvas>
+                                        <div class="canvas-placeholder" id="bst-canvas-placeholder">
+                                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M9 11H1l8-8 8 8h-8v8z"></path>
+                                            </svg>
+                                            <p>Enter numbers and click "Create BST" to visualize</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tree-info">
+                                    <h3>Tree Information</h3>
+                                    <div id="bst-info" class="info-display">
+                                        <div class="info-placeholder">
+                                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <circle cx="12" cy="12" r="10"></circle>
+                                                <path d="M12 16v-4"></path>
+                                                <path d="M12 8h.01"></path>
+                                            </svg>
+                                            <p>Tree information will appear here...</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Traversals Section -->
+                            <div class="tree-traversals-section" style="margin-top:2rem;">
+                                <h3>Tree Traversals</h3>
+                                <div class="traversal-results">
+                                    <div><strong>Inorder:</strong> <span id="inorder-result" class="traversal-result">-</span></div>
+                                    <div><strong>Preorder:</strong> <span id="preorder-result" class="traversal-result">-</span></div>
+                                    <div><strong>Postorder:</strong> <span id="postorder-result" class="traversal-result">-</span></div>
+                                </div>
+                            </div>
+                            <div class="examples-section">
+                                <h3>Quick Examples</h3>
+                                <div class="example-grid">
+                                    <div class="example-item" data-numbers="5,3,7,1,9,4,6">
+                                        <span class="example-label">Balanced BST</span>
+                                        <span class="example-expr">5,3,7,1,9,4,6</span>
+                                    </div>
+                                    <div class="example-item" data-numbers="1,2,3,4,5">
+                                        <span class="example-label">Linear BST</span>
+                                        <span class="example-expr">1,2,3,4,5</span>
+                                    </div>
+                                    <div class="example-item" data-numbers="10,5,15,3,7,12,18">
+                                        <span class="example-label">Large BST</span>
+                                        <span class="example-expr">10,5,15,3,7,12,18</span>
+                                    </div>
+                                    <div class="example-item" data-numbers="8,4,12,2,6,10,14">
+                                        <span class="example-label">Perfect BST</span>
+                                        <span class="example-expr">8,4,12,2,6,10,14</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Normalization Checker -->
+                <div id="normalization" class="tab-content">
+                    <div class="tool-section card-panel normalization-panel">
+                        <h2 class="section-title gradient-text">Database Normalization Checker</h2>
+                        <p class="hero-subtitle">Check if a database schema is properly normalized using functional dependencies.</p>
+                        <!-- Stepper/Progress Bar -->
+                        <div class="normalization-stepper stepper-theme">
+                            <div class="step active">
+                                <div class="step-circle step-active">1</div>
+                                <span>Define FDs</span>
+                            </div>
+                            <div class="stepper-line"></div>
+                            <div class="step">
+                                <div class="step-circle">2</div>
+                                <span>Analyze</span>
+                            </div>
+                            <div class="stepper-line"></div>
+                            <div class="step">
+                                <div class="step-circle">3</div>
+                                <span>Results</span>
+                            </div>
+                        </div>
+                        <div class="normalization-container">
+                            <div class="fd-input-section glass-effect">
+                                <div class="fd-header">
+                                    <h3>Functional Dependencies</h3>
+                                    <button class="btn btn-primary add-fd-btn">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        </svg>
+                                        Add
+                                    </button>
+                                </div>
+                                <p class="section-description">Define the relationships between attributes in your database schema. <span class="format-hint">Format: A,B → C</span></p>
+                                <div id="fd-list" class="fd-list">
+                                    <div class="fd-item glass-effect">
+                                        <div class="fd-inputs">
+                                            <div class="fd-left-container">
+                                                <label>Left (Determinant)</label>
+                                                <input type="text" class="fd-left" placeholder="A,B" value="StudentID">
+                                            </div>
+                                            <div class="fd-arrow">→</div>
+                                            <div class="fd-right-container">
+                                                <label>Right (Dependent)</label>
+                                                <input type="text" class="fd-right" placeholder="C" value="Name,Email">
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-secondary remove-fd-btn" onclick="removeFD(this)">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <polyline points="3,6 5,6 21,6"></polyline>
+                                                <path d="m19,6v14a2,2 0 0,1 -2,2H7a2,2 0 0,1 -2,-2V6m3,0V4a2,2 0 0,1 2,-2h4a2,2 0 0,1 2,2v2"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="fd-item glass-effect">
+                                        <div class="fd-inputs">
+                                            <div class="fd-left-container">
+                                                <label>Left (Determinant)</label>
+                                                <input type="text" class="fd-left" placeholder="A,B" value="CourseID">
+                                            </div>
+                                            <div class="fd-arrow">→</div>
+                                            <div class="fd-right-container">
+                                                <label>Right (Dependent)</label>
+                                                <input type="text" class="fd-right" placeholder="C" value="CourseName,Instructor">
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-secondary remove-fd-btn" onclick="removeFD(this)">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <polyline points="3,6 5,6 21,6"></polyline>
+                                                <path d="m19,6v14a2,2 0 0,1 -2,2H7a2,2 0 0,1 -2,-2V6m3,0V4a2,2 0 0,1 2,-2h4a2,2 0 0,1 2,2v2"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="check-normalization-section">
+                                <button class="btn btn-primary check-btn">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M9 12l2 2 4-4"></path>
+                                        <path d="M21 12c-1 0-2-1-2-2s1-2 2-2 2 1 2 2-1 2-2 2z"></path>
+                                        <path d="M3 12c1 0 2-1 2-2s-1-2-2-2-2 1-2 2 1 2 2 2z"></path>
+                                        <path d="M12 3c0 1-1 2-2 2s-2-1-2-2 1-2 2-2 2 1 2 2z"></path>
+                                        <path d="M12 21c0-1 1-2 2-2s2 1 2 2-1 2-2 2-2-1-2-2z"></path>
+                                    </svg>
+                                    Analyze Normalization
+                                </button>
+                            </div>
+                            <div class="normalization-result-section glass-effect">
+                                <h3><span class="result-icon">🔍</span>Analysis Results</h3>
+                                <div id="normalization-result" class="result-display">
+                                    <div class="result-placeholder">
+                                        <p>Analysis results will appear here...</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NFA to DFA -->
+                <div id="nfa-dfa" class="tab-content">
+                    <div class="tool-section card-panel nfa-dfa-panel">
+                        <h2 class="section-title gradient-text">NFA to DFA Converter</h2>
+                        <p class="hero-subtitle">Convert Non-deterministic Finite Automata to Deterministic Finite Automata using the subset construction algorithm.</p>
+                        <div class="concept-explanation glass-effect" style="margin-bottom:2rem;">
+                            <h3>📚 Understanding NFA to DFA Conversion</h3>
+                            <div class="explanation-content">
+                                <p><strong>NFA (Non-deterministic Finite Automaton):</strong> Can have multiple transitions for the same input from a state, and can have ε-transitions.</p>
+                                <p><strong>DFA (Deterministic Finite Automaton):</strong> Has exactly one transition for each input symbol from each state, with no ε-transitions.</p>
+                                <p><strong>Final States:</strong> Every DFA must have at least one final state. A DFA state is final if it contains any NFA final state from the original automaton.</p>
+                                <p><strong>Subset Construction:</strong> Each DFA state represents a set of NFA states. The algorithm explores all reachable state combinations.</p>
+                            </div>
+                        </div>
+                        <div class="automata-container nfa-dfa-container">
+                            <div class="nfa-input automaton-input glass-effect">
+                                <h3>NFA Definition:</h3>
+                                <div class="input-group">
+                                    <label for="nfa-states">States (comma-separated):</label>
+                                    <input type="text" id="nfa-states" placeholder="q0,q1,q2" value="q0,q1,q2">
+                                </div>
+                                <div class="input-group">
+                                    <label for="nfa-alphabet">Alphabet (comma-separated):</label>
+                                    <input type="text" id="nfa-alphabet" placeholder="0,1" value="0,1">
+                                </div>
+                                <div class="input-group">
+                                    <label for="nfa-start">Start State:</label>
+                                    <input type="text" id="nfa-start" placeholder="q0" value="q0">
+                                </div>
+                                <div class="input-group">
+                                    <label for="nfa-final">Final States (comma-separated):</label>
+                                    <input type="text" id="nfa-final" placeholder="q2" value="q2">
+                                </div>
+                            </div>
+                            <div class="transition-table glass-effect" style="margin-top:1.5rem;">
+                                <h3>Transition Table:</h3>
+                                <div id="transition-table"></div>
+                                <button class="btn btn-primary" onclick="addTransition()">Add Transition</button>
+                            </div>
+                            <div class="convert-automata" style="margin-top:1.5rem;">
+                                <button class="btn btn-primary" onclick="convertNFAtoDFA()">Convert to DFA</button>
+                            </div>
+                            <div class="dfa-result glass-effect" style="margin-top:1.5rem;">
+                                <h3>DFA Result:</h3>
+                                <div id="dfa-result" class="result-display"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- K-map Solver -->
+                <div id="kmap-solver" class="tab-content">
+                    <div class="tool-section card-panel kmap-panel">
+                        <h2 class="section-title gradient-text">Karnaugh Map (K-map) Solver</h2>
+                        <p class="hero-subtitle">Simplify Boolean expressions using a visual K-map. Supports 2, 3, or 4 variables.</p>
+                        <div class="kmap-controls glass-effect">
+                            <div class="input-group">
+                                <label for="kmap-variables">Number of Variables:</label>
+                                <select id="kmap-variables" class="kmap-select">
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4" selected>4</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label for="kmap-minterms">Minterms (comma-separated):</label>
+                                <input type="text" id="kmap-minterms" placeholder="e.g., 0,1,2,5,7,8,9,10,14,15">
+                            </div>
+                            <div class="input-group">
+                                <label for="kmap-dontcares">Don't Cares (optional):</label>
+                                <input type="text" id="kmap-dontcares" placeholder="e.g., 3,6,11">
+                            </div>
+                            <button id="kmap-solve-btn" class="btn btn-primary">Solve</button>
+                        </div>
+                        <div class="kmap-result-section glass-effect">
+                            <h3>K-map Grid</h3>
+                            <div id="kmap-grid" class="kmap-grid"></div>
+                            <h3>Simplified Expression</h3>
+                            <div id="kmap-expression" class="result-display"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer will be loaded here -->
+    <div id="footer-container"></div>
+
+    <!-- JavaScript -->
+    <script src="../assets/js/tools.js"></script>
+    <script src="../assets/js/developer.js"></script>
+</body>
+</html> 

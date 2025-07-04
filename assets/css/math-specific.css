@@ -1,0 +1,1282 @@
+/* Math Tools Specific Styles */
+
+/* Calculator Styles */
+.calculator-container {
+    max-width: 420px;
+    margin: 2rem auto;
+    background: var(--glass-bg);
+    border: 1.5px solid var(--glass-border);
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+    backdrop-filter: blur(24px);
+}
+
+.calculator-display {
+    background: var(--background);
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+    border-bottom: 1.5px solid var(--glass-border);
+    border-radius: 1.5rem 1.5rem 0 0;
+    box-shadow: 0 2px 8px 0 rgba(31, 38, 135, 0.08);
+}
+
+.display-screen {
+    text-align: right;
+    min-height: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: rgba(255,255,255,0.08);
+    border-radius: 1rem;
+    padding: 1rem;
+    box-shadow: 0 1px 4px 0 rgba(31, 38, 135, 0.06);
+}
+
+.expression {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    min-height: 1.5rem;
+    word-wrap: break-word;
+    letter-spacing: 0.5px;
+}
+
+.result {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    min-height: 2.5rem;
+    letter-spacing: 1px;
+}
+
+.calculator-buttons {
+    display: grid;
+    gap: 8px;
+    background: transparent;
+    padding: 1rem;
+}
+
+.button-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+}
+
+.calc-btn {
+    padding: 1.1rem 0.5rem;
+    border: none;
+    background: var(--glass-bg);
+    color: var(--text-primary);
+    font-size: 1.05rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s cubic-bezier(.4,0,.2,1);
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 4px 0 rgba(31, 38, 135, 0.06);
+    outline: none;
+}
+
+.calc-btn:hover {
+    background: var(--glass-hover);
+    transform: translateY(-2px) scale(1.06);
+    box-shadow: 0 4px 12px 0 rgba(31, 38, 135, 0.10);
+}
+
+.calc-btn:active {
+    transform: scale(0.97);
+}
+
+.calc-btn.number {
+    background: var(--background);
+    font-weight: 700;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+.calc-btn.operator {
+    background: var(--primary-color);
+    color: #fff;
+    font-weight: 600;
+    border: 1px solid var(--primary-color);
+}
+
+.calc-btn.function {
+    background: var(--accent-color);
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: 1px solid var(--accent-color);
+}
+
+.calc-btn.clear {
+    background: var(--error-color);
+    color: #fff;
+    border: 1px solid var(--error-color);
+}
+
+.calc-btn.equals {
+    background: var(--success-color);
+    color: #fff;
+    font-weight: 700;
+    border: 1px solid var(--success-color);
+}
+
+/* Equation Solver Styles */
+.equation-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.equation-type-selector {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius-lg);
+    padding: 1.5rem;
+    backdrop-filter: blur(20px);
+}
+
+.equation-type-selector h3 {
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    font-size: 1.2rem;
+}
+
+.equation-types {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.equation-types label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    background: var(--background);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.equation-types label:hover {
+    background: var(--glass-hover);
+    border-color: var(--primary-color);
+}
+
+.equation-types input[type="radio"] {
+    accent-color: var(--primary-color);
+}
+
+.equation-inputs {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius-lg);
+    padding: 2rem;
+    backdrop-filter: blur(20px);
+}
+
+.equation-input-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    align-items: end;
+}
+
+.equation-input-section h3 {
+    grid-column: 1 / -1;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    font-size: 1.2rem;
+}
+
+.system-equations {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.equation-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    background: var(--background);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius);
+}
+
+.equation-row input {
+    width: 80px;
+    text-align: center;
+}
+
+.equation-row span {
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/* Matrix Calculator Styles */
+.matrix-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.matrix-inputs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.matrix-section {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius-lg);
+    padding: 1.5rem;
+    backdrop-filter: blur(20px);
+}
+
+.matrix-section h3 {
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    font-size: 1.2rem;
+}
+
+.matrix-grid {
+    display: grid;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.matrix-grid input {
+    width: 60px;
+    height: 40px;
+    text-align: center;
+    padding: 0.5rem;
+    background: var(--background);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius);
+    color: var(--text-primary);
+}
+
+/* Matrix Result Table Styles */
+.matrix-result {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+    overflow-x: auto;
+    padding: 0.5rem;
+}
+
+.matrix-table {
+    border-collapse: separate;
+    border-spacing: 0;
+    background: var(--glass-bg);
+    border: 2px solid var(--primary-color);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    backdrop-filter: blur(20px);
+    margin: 0 auto;
+    min-width: 200px;
+}
+
+.matrix-table td {
+    padding: 1rem 1.5rem;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    background: var(--background);
+    border: 1px solid var(--glass-border);
+    min-width: 80px;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.matrix-table td:hover {
+    background: var(--glass-hover);
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px 0 rgba(31, 38, 135, 0.1);
+    z-index: 1;
+}
+
+.matrix-table tr:first-child td {
+    border-top: none;
+}
+
+.matrix-table tr:last-child td {
+    border-bottom: none;
+}
+
+.matrix-table tr td:first-child {
+    border-left: none;
+}
+
+.matrix-table tr td:last-child {
+    border-right: none;
+}
+
+/* Success message styling for matrix results */
+.success-message {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(34, 197, 94, 0.05));
+    border: 1px solid rgba(34, 197, 94, 0.2);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 4px 16px 0 rgba(34, 197, 94, 0.1);
+}
+
+.success-message h4 {
+    color: var(--success-color);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Matrix size selector styling */
+.matrix-size-selector {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    align-items: center;
+}
+
+.matrix-size-selector label {
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.matrix-size-selector select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: var(--glass-bg);
+    border: 1.5px solid var(--primary-color);
+    border-radius: 0.75rem;
+    padding: 0.7rem 2.5rem 0.7rem 1rem;
+    color: var(--text-primary);
+    font-size: 1.05rem;
+    font-weight: 500;
+    box-shadow: 0 2px 8px 0 rgba(31, 38, 135, 0.08);
+    transition: border 0.2s, box-shadow 0.2s;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    margin-bottom: 0.5rem;
+}
+
+.matrix-size-selector select:focus {
+    border: 2px solid var(--accent-color);
+    box-shadow: 0 0 0 2px var(--accent-color);
+}
+
+.matrix-size-selector select:hover {
+    border: 1.5px solid var(--accent-color);
+    background: var(--glass-hover);
+}
+
+/* Custom arrow for select */
+.matrix-size-selector select {
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23666" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1.2rem;
+}
+
+/* Remove default arrow in IE */
+.matrix-size-selector select::-ms-expand {
+    display: none;
+}
+
+/* Option styles */
+.matrix-size-selector select option {
+    background: var(--background);
+    color: var(--text-primary);
+    font-size: 1rem;
+    border-radius: 0.5rem;
+}
+
+/* Statistics Styles */
+.stats-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.data-input-section {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius-lg);
+    padding: 1.5rem;
+    backdrop-filter: blur(20px);
+}
+
+.data-input-section h3 {
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    font-size: 1.2rem;
+}
+
+.data-input {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    align-items: center;
+}
+
+.data-input input {
+    flex: 1;
+    padding: 0.75rem;
+    background: var(--background);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius);
+    color: var(--text-primary);
+}
+
+.data-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.data-item {
+    background: var(--background);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius);
+    padding: 0.5rem 1rem;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.data-item button {
+    background: var(--error-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stats-results {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius-lg);
+    padding: 1.5rem;
+    backdrop-filter: blur(20px);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.stat-item {
+    background: var(--background);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    text-align: center;
+}
+
+.stat-label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.stat-value {
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* Responsive Design */
+/* Large Tablets and Small Laptops */
+@media (max-width: 1024px) {
+    .calculator-container {
+        max-width: 100%;
+        padding: 1.5rem;
+    }
+    
+    .button-row {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 0.75rem;
+    }
+    
+    .calc-btn {
+        padding: 0.8rem 0.3rem;
+        font-size: 1rem;
+    }
+    
+    .equation-types {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+    }
+    
+    .matrix-grid input {
+        width: 60px;
+        height: 40px;
+        font-size: 1.1rem;
+    }
+    
+    .matrix-table td {
+        padding: 0.8rem 1.2rem;
+        font-size: 1.1rem;
+        min-width: 70px;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+    }
+    
+    .display-screen {
+        padding: 1.2rem;
+        min-height: 90px;
+    }
+    
+    .expression {
+        font-size: 1.1rem;
+    }
+    
+    .result {
+        font-size: 1.8rem;
+    }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+    .calculator-container {
+        max-width: 100%;
+        padding: 1rem;
+    }
+    
+    .button-row {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 0.5rem;
+    }
+    
+    .calc-btn {
+        padding: 0.75rem 0.25rem;
+        font-size: 0.9rem;
+    }
+    
+    .equation-types {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+    
+    .equation-input-section {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+    
+    .equation-row {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        align-items: stretch;
+    }
+    
+    .equation-row input {
+        width: 80px;
+        font-size: 0.95rem;
+        padding: 0.5rem 0.75rem;
+    }
+    
+    .matrix-inputs {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+    
+    .matrix-grid input {
+        width: 50px;
+        height: 35px;
+        font-size: 1rem;
+    }
+    
+    .matrix-table td {
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+        min-width: 60px;
+    }
+    
+    .matrix-result {
+        margin: 0.5rem 0;
+        padding: 1rem;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+    
+    .matrix-size-selector select,
+    .equation-type-selector select {
+        font-size: 0.95rem;
+        padding: 0.6rem 2rem 0.6rem 0.8rem;
+    }
+    
+    /* Calculator display responsive */
+    .display-screen {
+        padding: 1rem;
+        min-height: 80px;
+    }
+    
+    .expression {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .result {
+        font-size: 1.6rem;
+    }
+    
+    /* Data input responsive */
+    .data-input input {
+        font-size: 0.95rem;
+        padding: 0.5rem 0.75rem;
+    }
+    
+    .data-item {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+    
+    .data-item button {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.8rem;
+    }
+    
+    /* Stats responsive */
+    .stat-item {
+        padding: 0.75rem;
+    }
+    
+    .stat-label {
+        font-size: 0.9rem;
+    }
+    
+    .stat-value {
+        font-size: 1.2rem;
+    }
+    
+    /* Success message responsive */
+    .success-message {
+        padding: 1rem;
+    }
+    
+    .success-message h4 {
+        font-size: 1.1rem;
+    }
+}
+
+/* Mobile Phones */
+@media (max-width: 480px) {
+    .calculator-container {
+        padding: 0.75rem;
+    }
+    
+    .button-row {
+        gap: 0.4rem;
+    }
+    
+    .calc-btn {
+        padding: 0.5rem 0.1rem;
+        font-size: 0.8rem;
+        border-radius: 8px;
+    }
+    
+    .display-screen {
+        padding: 0.75rem;
+        min-height: 70px;
+    }
+    
+    .result {
+        font-size: 1.5rem;
+    }
+    
+    .expression {
+        font-size: 0.9rem;
+        margin-bottom: 0.4rem;
+    }
+    
+    .equation-input-section {
+        padding: 0.75rem;
+    }
+    
+    .equation-row input {
+        width: 60px;
+        font-size: 0.9rem;
+        padding: 0.4rem 0.6rem;
+    }
+    
+    .matrix-inputs {
+        padding: 0.75rem;
+    }
+    
+    .matrix-grid input {
+        width: 45px;
+        height: 30px;
+        font-size: 0.9rem;
+    }
+    
+    .matrix-table td {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.9rem;
+        min-width: 50px;
+    }
+    
+    .matrix-table {
+        min-width: 150px;
+        border-width: 1px;
+    }
+    
+    .matrix-result {
+        padding: 0.75rem;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+    
+    .stat-item {
+        padding: 0.6rem;
+    }
+    
+    .stat-label {
+        font-size: 0.85rem;
+    }
+    
+    .stat-value {
+        font-size: 1.1rem;
+    }
+    
+    .data-input input {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.6rem;
+    }
+    
+    .data-item {
+        padding: 0.6rem;
+        font-size: 0.85rem;
+    }
+    
+    .data-item button {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.75rem;
+    }
+    
+    .success-message {
+        padding: 0.75rem;
+    }
+    
+    .success-message h4 {
+        font-size: 1rem;
+    }
+    
+    .matrix-size-selector select,
+    .equation-type-selector select {
+        font-size: 0.9rem;
+        padding: 0.5rem 1.5rem 0.5rem 0.7rem;
+    }
+}
+
+/* Extra Small Mobile Phones */
+@media (max-width: 360px) {
+    .calculator-container {
+        padding: 0.5rem;
+    }
+    
+    .button-row {
+        gap: 0.3rem;
+    }
+    
+    .calc-btn {
+        padding: 0.4rem 0.05rem;
+        font-size: 0.75rem;
+        border-radius: 6px;
+    }
+    
+    .display-screen {
+        padding: 0.5rem;
+        min-height: 60px;
+    }
+    
+    .result {
+        font-size: 1.3rem;
+    }
+    
+    .expression {
+        font-size: 0.85rem;
+    }
+    
+    .equation-input-section {
+        padding: 0.5rem;
+    }
+    
+    .equation-row input {
+        width: 50px;
+        font-size: 0.85rem;
+        padding: 0.3rem 0.5rem;
+    }
+    
+    .matrix-inputs {
+        padding: 0.5rem;
+    }
+    
+    .matrix-grid input {
+        width: 40px;
+        height: 25px;
+        font-size: 0.85rem;
+    }
+    
+    .matrix-table td {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.8rem;
+        min-width: 40px;
+    }
+    
+    .matrix-result {
+        padding: 0.5rem;
+    }
+    
+    .stat-item {
+        padding: 0.5rem;
+    }
+    
+    .stat-label {
+        font-size: 0.8rem;
+    }
+    
+    .stat-value {
+        font-size: 1rem;
+    }
+    
+    .data-input input {
+        font-size: 0.85rem;
+        padding: 0.3rem 0.5rem;
+    }
+    
+    .data-item {
+        padding: 0.5rem;
+        font-size: 0.8rem;
+    }
+    
+    .data-item button {
+        padding: 0.2rem 0.4rem;
+        font-size: 0.7rem;
+    }
+    
+    .success-message {
+        padding: 0.5rem;
+    }
+    
+    .success-message h4 {
+        font-size: 0.9rem;
+    }
+    
+    .matrix-size-selector select,
+    .equation-type-selector select {
+        font-size: 0.8rem;
+        padding: 0.4rem 1.2rem 0.4rem 0.6rem;
+    }
+}
+
+/* Landscape Mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+    .calculator-container {
+        padding: 0.75rem;
+    }
+    
+    .calc-btn {
+        padding: 0.6rem 0.2rem;
+        font-size: 0.85rem;
+    }
+    
+    .display-screen {
+        min-height: 60px;
+        padding: 0.6rem;
+    }
+    
+    .equation-input-section {
+        padding: 0.75rem;
+    }
+    
+    .matrix-inputs {
+        padding: 0.75rem;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* --- Restored Shared Styles for Math Tool --- */
+.tool-page {
+    min-height: calc(100vh - 160px);
+    padding: 2rem 0;
+}
+
+.tool-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.tool-page-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.tool-page-description {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.tool-nav {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    padding: 0.75rem 1.5rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: 500;
+    backdrop-filter: blur(20px);
+}
+
+.tab-btn:hover {
+    background: var(--glass-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+}
+
+.tab-btn.active {
+    background: var(--gradient-primary);
+    color: white;
+    border-color: transparent;
+    box-shadow: var(--shadow-md);
+}
+
+.tool-content {
+    position: relative;
+}
+
+.tab-content {
+    display: none;
+    animation: fadeInUp 0.3s ease-out;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.tool-section {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius-lg);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    backdrop-filter: blur(20px);
+    box-shadow: var(--shadow-sm);
+}
+
+.tool-section h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.tool-section p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.input-group label {
+    font-weight: 500;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea {
+    padding: 0.75rem 1rem;
+    background: var(--background);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius);
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.input-group input::placeholder {
+    color: var(--text-muted);
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 0.9rem;
+}
+
+.btn-primary {
+    background: var(--gradient-primary);
+    color: white;
+    box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    background: var(--gradient-secondary);
+}
+
+.btn-secondary {
+    background: var(--glass-bg);
+    color: var(--text-primary);
+    border: 1px solid var(--glass-border);
+}
+
+.btn-secondary:hover {
+    background: var(--glass-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+}
+
+@media (max-width: 768px) {
+    .tool-page {
+        padding: 1rem 0;
+    }
+    .tool-page-title {
+        font-size: 2rem;
+    }
+    .tool-page-description {
+        font-size: 1rem;
+    }
+    .tool-nav {
+        gap: 0.25rem;
+        margin-bottom: 2rem;
+    }
+    .tab-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+    .tool-section {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    .tool-section h2 {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .tool-page-title {
+        font-size: 1.75rem;
+    }
+    .tool-nav {
+        flex-direction: column;
+        width: 100%;
+    }
+    .tab-btn {
+        width: 100%;
+        text-align: center;
+    }
+    .tool-section {
+        padding: 1rem;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* --- End of Restored Shared Styles --- */
+
+/* Modern Dropdown Style for Matrix Operation Dropdown Only */
+.matrix-operation-selector select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: var(--glass-bg);
+    border: 1.5px solid var(--primary-color);
+    border-radius: 0.75rem;
+    padding: 0.7rem 2.5rem 0.7rem 1rem;
+    color: var(--text-primary);
+    font-size: 1.05rem;
+    font-weight: 500;
+    box-shadow: 0 2px 8px 0 rgba(31, 38, 135, 0.08);
+    transition: border 0.2s, box-shadow 0.2s;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    margin-bottom: 0.5rem;
+}
+
+.matrix-operation-selector select:focus {
+    border: 2px solid var(--accent-color);
+    box-shadow: 0 0 0 2px var(--accent-color);
+}
+
+.matrix-operation-selector select:hover {
+    border: 1.5px solid var(--accent-color);
+    background: var(--glass-hover);
+}
+
+.matrix-operation-selector select {
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23666" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1.2rem;
+}
+
+.matrix-operation-selector select::-ms-expand {
+    display: none;
+}
+
+.matrix-operation-selector select option {
+    background: var(--background);
+    color: var(--text-primary);
+    font-size: 1rem;
+    border-radius: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .matrix-operation-selector select {
+        font-size: 0.95rem;
+        padding: 0.6rem 2rem 0.6rem 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .matrix-operation-selector select {
+        font-size: 0.9rem;
+        padding: 0.5rem 1.5rem 0.5rem 0.7rem;
+    }
+}
+
+/* Modern Dropdown Style for Select Shape Dropdown in Geometry Calculator */
+.shape-selector select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: var(--glass-bg);
+    border: 1.5px solid var(--primary-color);
+    border-radius: 0.75rem;
+    padding: 0.7rem 2.5rem 0.7rem 1rem;
+    color: var(--text-primary);
+    font-size: 1.05rem;
+    font-weight: 500;
+    box-shadow: 0 2px 8px 0 rgba(31, 38, 135, 0.08);
+    transition: border 0.2s, box-shadow 0.2s;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    margin-bottom: 0.5rem;
+}
+
+.shape-selector select:focus {
+    border: 2px solid var(--accent-color);
+    box-shadow: 0 0 0 2px var(--accent-color);
+}
+
+.shape-selector select:hover {
+    border: 1.5px solid var(--accent-color);
+    background: var(--glass-hover);
+}
+
+.shape-selector select {
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23666" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1.2rem;
+}
+
+.shape-selector select::-ms-expand {
+    display: none;
+}
+
+.shape-selector select option {
+    background: var(--background);
+    color: var(--text-primary);
+    font-size: 1rem;
+    border-radius: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .shape-selector select {
+        font-size: 0.95rem;
+        padding: 0.6rem 2rem 0.6rem 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .shape-selector select {
+        font-size: 0.9rem;
+        padding: 0.5rem 1.5rem 0.5rem 0.7rem;
+    }
+} 

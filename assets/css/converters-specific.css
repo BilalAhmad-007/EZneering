@@ -1,0 +1,382 @@
+/* Converters Tool Specific Styles */
+
+/* Converter Container */
+.converter-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 1rem;
+}
+
+.converter-inputs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    align-items: end;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius-lg);
+    padding: 2rem;
+    backdrop-filter: blur(20px);
+    box-shadow: var(--shadow-sm);
+}
+
+.converter-inputs .input-group {
+    margin-bottom: 0;
+}
+
+.converter-inputs .btn {
+    height: fit-content;
+    min-height: 48px;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.75rem 2rem;
+    background: var(--gradient-primary);
+    border: none;
+    color: white;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+}
+
+.converter-inputs .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.result-display {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius-lg);
+    padding: 2rem;
+    backdrop-filter: blur(20px);
+    box-shadow: var(--shadow-sm);
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.result-display:empty::before {
+    content: "Enter a value and click Convert to see the result";
+    color: var(--text-secondary);
+    font-style: italic;
+    text-align: center;
+}
+
+.success-message {
+    text-align: center;
+    width: 100%;
+}
+
+.success-message h4 {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.success-message p {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    font-weight: 500;
+    background: var(--background);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--glass-border);
+}
+
+.error-message {
+    text-align: center;
+    color: #ef4444;
+    font-weight: 500;
+    padding: 1rem;
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    border-radius: var(--border-radius);
+}
+
+/* Responsive Design for Converters */
+@media (max-width: 1024px) {
+    .converter-inputs {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 1rem;
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .converter-inputs {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    .converter-inputs .btn {
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+    
+    .result-display {
+        padding: 1.5rem;
+        min-height: 100px;
+    }
+    
+    .success-message h4 {
+        font-size: 1.1rem;
+    }
+    
+    .success-message p {
+        font-size: 1rem;
+        padding: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .converter-container {
+        gap: 1rem;
+    }
+    
+    .converter-inputs {
+        padding: 0.75rem;
+    }
+    
+    .result-display {
+        padding: 1rem;
+        min-height: 80px;
+    }
+    
+    .result-display:empty::before {
+        font-size: 0.9rem;
+    }
+}
+
+/* --- Restored Shared Styles for Converters Tool --- */
+.tool-page {
+    min-height: calc(100vh - 160px);
+    padding: 2rem 0;
+}
+
+.tool-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.tool-page-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.tool-page-description {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.tool-nav {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    padding: 0.75rem 1.5rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: 500;
+    backdrop-filter: blur(20px);
+}
+
+.tab-btn:hover {
+    background: var(--glass-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+}
+
+.tab-btn.active {
+    background: var(--gradient-primary);
+    color: white;
+    border-color: transparent;
+    box-shadow: var(--shadow-md);
+}
+
+.tool-content {
+    position: relative;
+}
+
+.tab-content {
+    display: none;
+    animation: fadeInUp 0.3s ease-out;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.tool-section {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius-lg);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    backdrop-filter: blur(20px);
+    box-shadow: var(--shadow-sm);
+}
+
+.tool-section h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.tool-section p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.input-group label {
+    font-weight: 500;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea {
+    padding: 0.75rem 1rem;
+    background: var(--background);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius);
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.input-group input::placeholder {
+    color: var(--text-muted);
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 0.9rem;
+}
+
+.btn-primary {
+    background: var(--gradient-primary);
+    color: white;
+    box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    background: var(--gradient-secondary);
+}
+
+.btn-secondary {
+    background: var(--glass-bg);
+    color: var(--text-primary);
+    border: 1px solid var(--glass-border);
+}
+
+.btn-secondary:hover {
+    background: var(--glass-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+}
+
+@media (max-width: 768px) {
+    .tool-page {
+        padding: 1rem 0;
+    }
+    .tool-page-title {
+        font-size: 2rem;
+    }
+    .tool-page-description {
+        font-size: 1rem;
+    }
+    .tool-nav {
+        gap: 0.25rem;
+        margin-bottom: 2rem;
+    }
+    .tab-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+    .tool-section {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    .tool-section h2 {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .tool-page-title {
+        font-size: 1.75rem;
+    }
+    .tool-nav {
+        flex-direction: column;
+        width: 100%;
+    }
+    .tab-btn {
+        width: 100%;
+        text-align: center;
+    }
+    .tool-section {
+        padding: 1rem;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* --- End of Restored Shared Styles --- */ 

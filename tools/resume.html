@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder - Free Online Professional Resume Creator | EZneering</title>
+    <meta name="description" content="Create a professional resume instantly with our free online resume builder. All data stays in your browser. Download as PDF. Professional templates for job seekers.">
+    <meta name="keywords" content="resume builder, CV builder, professional resume, online resume creator, free resume builder, resume template, job application, career tools">
+    <meta name="author" content="EZneering">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ezneering.com/tools/resume.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ezneering.com/tools/resume.html">
+    <meta property="og:title" content="Resume Builder - Free Online Professional Resume Creator | EZneering">
+    <meta property="og:description" content="Create a professional resume instantly with our free online resume builder. All data stays in your browser. Download as PDF.">
+    <meta property="og:image" content="https://ezneering.com/assets/images/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ezneering.com/tools/resume.html">
+    <meta property="twitter:title" content="Resume Builder - Free Online Professional Resume Creator | EZneering">
+    <meta property="twitter:description" content="Create a professional resume instantly with our free online resume builder. All data stays in your browser. Download as PDF.">
+    <meta property="twitter:image" content="https://ezneering.com/assets/images/og-image.jpg">
+    
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Resume Builder - EZneering",
+        "description": "Create a professional resume instantly with our free online resume builder. All data stays in your browser. Download as PDF.",
+        "url": "https://ezneering.com/tools/resume.html",
+        "applicationCategory": "ProductivityApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "featureList": [
+            "Professional Resume Templates",
+            "PDF Download",
+            "Real-time Preview",
+            "Privacy-focused (Browser-only)",
+            "Customizable Sections",
+            "Professional Formatting"
+        ]
+    }
+    </script>
+    
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/resume-specific.css">
+</head>
+<body>
+    <!-- Header will be loaded here -->
+    <div id="header-container"></div>
+
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb-list">
+                <li class="breadcrumb-item">
+                    <a href="../index.html" class="breadcrumb-link">Home</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="../index.html#tools-section" class="breadcrumb-link">Tools</a>
+                </li>
+                <li class="breadcrumb-item current" aria-current="page">
+                    Resume Builder
+                </li>
+            </ol>
+        </div>
+    </nav>
+
+    <main class="tool-page">
+        <div class="container">
+            <div class="tool-header">
+                <h1 class="tool-page-title">Resume Builder</h1>
+                <p class="tool-page-description">Create a professional resume instantly. All data stays in your browser. Download as PDF.</p>
+            </div>
+            <div class="resume-builder-container">
+                <!-- Resume Form -->
+                <form id="resume-form" class="resume-form-panel" autocomplete="off" onsubmit="return false;">
+                    <h2>Enter Your Details</h2>
+                    <div class="form-group">
+                        <label for="rb-name">Full Name</label>
+                        <input type="text" id="rb-name" required placeholder="Your Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="rb-title">Professional Title</label>
+                        <input type="text" id="rb-title" placeholder="e.g. Software Engineer">
+                    </div>
+                    <div class="form-group">
+                        <label for="rb-email">Email</label>
+                        <input type="email" id="rb-email" placeholder="you@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="rb-phone">Phone</label>
+                        <input type="text" id="rb-phone" placeholder="+1 234 567 8901">
+                    </div>
+                    <div class="form-group">
+                        <label for="rb-location">Location</label>
+                        <input type="text" id="rb-location" placeholder="City, Country">
+                    </div>
+                    <div class="form-group">
+                        <label for="rb-summary">Professional Summary</label>
+                        <textarea id="rb-summary" rows="3" placeholder="A short summary about you..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Education</label>
+                        <div id="rb-education-list"></div>
+                        <button type="button" class="add-btn" onclick="addEducation()">Add Education</button>
+                    </div>
+                    <div class="form-group">
+                        <label>Experience</label>
+                        <div id="rb-experience-list"></div>
+                        <button type="button" class="add-btn" onclick="addExperience()">Add Experience</button>
+                    </div>
+                    <div class="form-group">
+                        <label>Skills (comma separated)</label>
+                        <input type="text" id="rb-skills" placeholder="e.g. JavaScript, Python, Teamwork">
+                    </div>
+                    <div class="form-group">
+                        <label>Projects</label>
+                        <div id="rb-project-list"></div>
+                        <button type="button" class="add-btn" onclick="addProject()">Add Project</button>
+                    </div>
+                    <div class="form-group">
+                        <label>Certificates</label>
+                        <div id="rb-certificate-list"></div>
+                        <button type="button" class="add-btn" onclick="addCertificate()">Add Certificate</button>
+                    </div>
+                    <div class="form-group">
+                        <label>Achievements</label>
+                        <div id="rb-achievement-list"></div>
+                        <button type="button" class="add-btn" onclick="addAchievement()">Add Achievement</button>
+                    </div>
+                    <div class="form-group">
+                        <label for="rb-github">GitHub Link</label>
+                        <input type="text" id="rb-github" placeholder="https://github.com/yourusername">
+                    </div>
+                    <div class="form-group">
+                        <label for="rb-linkedin">LinkedIn Link</label>
+                        <input type="text" id="rb-linkedin" placeholder="https://linkedin.com/in/yourusername">
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="download-btn" onclick="downloadResumePDF()">Download as PDF</button>
+                    </div>
+                </form>
+                <!-- Resume Preview -->
+                <div class="resume-preview-panel">
+                    <div id="resume-preview"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="footer-container"></div>
+    <script src="../assets/js/tools.js"></script>
+    <script src="../assets/js/resume.js"></script>
+</body>
+</html> 
