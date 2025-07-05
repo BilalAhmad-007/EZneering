@@ -62,9 +62,9 @@ function convertImage() {
                 let dataUrl = canvas.toDataURL(mimeType, quality);
                 // Create download link and preview
                 let downloadName = imageFile.name.replace(/\.[^.]+$/, '') + '.' + (targetFormat === 'jpg' ? 'jpg' : targetFormat);
-                let preview = `<img src="${dataUrl}" alt="Converted Preview" style="max-width:220px;max-height:180px;display:block;margin:0 auto 1.2em auto;border-radius:0.5em;box-shadow:0 2px 8px #0001;">`;
-                let downloadBtn = `<a href="${dataUrl}" download="${downloadName}" class="btn btn-primary" style="display:block;margin:0 auto 1em auto;max-width:220px;">Download Converted Image</a>`;
-                let info = `<div style="margin-top:0.5em;font-size:0.95em;color:#888;text-align:center;">Converted from ${sourceFormat.toUpperCase()} to ${targetFormat.toUpperCase()}<br>File: ${downloadName}</div>`;
+                let preview = `<img src="${dataUrl}" alt="Converted Preview">`;
+                let downloadBtn = `<a href="${dataUrl}" download="${downloadName}" class="btn btn-primary">Download Converted Image</a>`;
+                let info = `<div>Converted from ${sourceFormat.toUpperCase()} to ${targetFormat.toUpperCase()}<br>File: ${downloadName}</div>`;
                 result.innerHTML = preview + downloadBtn + info;
                 loadingDiv.style.display = 'none';
             } catch (err) {
@@ -232,9 +232,9 @@ function resizeImage() {
             if (ext === 'jpeg') ext = 'jpg';
             let dataUrl = canvas.toDataURL(fileType, 0.92);
             let downloadName = imageFile.name.replace(/\.[^.]+$/, '') + `-resized.${ext}`;
-            let preview = `<img src="${dataUrl}" alt="Resized Preview" style="max-width:220px;max-height:180px;display:block;margin:0 auto 1.2em auto;border-radius:0.5em;box-shadow:0 2px 8px #0001;">`;
-            let downloadBtn = `<a href="${dataUrl}" download="${downloadName}" class="btn btn-primary" style="display:block;margin:0 auto 1em auto;max-width:220px;">Download Resized Image</a>`;
-            let info = `<div style="margin-top:0.5em;font-size:0.95em;color:#888;text-align:center;">Original: ${origW} x ${origH}<br>New Size: ${width} x ${height}<br>File: ${downloadName}</div>`;
+            let preview = `<img src="${dataUrl}" alt="Resized Preview">`;
+            let downloadBtn = `<a href="${dataUrl}" download="${downloadName}" class="btn btn-primary">Download Resized Image</a>`;
+            let info = `<div>Original: ${origW} x ${origH}<br>New Size: ${width} x ${height}<br>File: ${downloadName}</div>`;
             result.innerHTML = preview + downloadBtn + info;
         };
         img.onerror = function() {
@@ -307,12 +307,12 @@ function compressImage() {
                 }
                 let reductionText = parseFloat(reduction) > 0 ? `Size Reduction: ${reduction}%` : 'No reduction';
                 let downloadName = imageFile.name.replace(/\.[^.]+$/, '') + `-compressed.${ext}`;
-                let preview = `<img src="${dataUrl}" alt="Compressed Preview" style="max-width:220px;max-height:180px;display:block;margin:0 auto 1.2em auto;border-radius:0.5em;box-shadow:0 2px 8px #0001;">`;
-                let downloadBtn = `<a href="${dataUrl}" download="${downloadName}" class="btn btn-primary" style="display:block;margin:0 auto 1em auto;max-width:220px;">Download Compressed Image</a>`;
-                let info = `<div style="margin-top:0.5em;font-size:0.95em;color:#888;text-align:center;">Original Size: ${originalSize.toFixed(2)} KB<br>Compressed Size: ${compressedSize.toFixed(2)} KB<br>${reductionText}<br>Compression Level: ${quality}<br>File: ${downloadName}</div>`;
+                let preview = `<img src="${dataUrl}" alt="Compressed Preview">`;
+                let downloadBtn = `<a href="${dataUrl}" download="${downloadName}" class="btn btn-primary">Download Compressed Image</a>`;
+                let info = `<div>Original Size: ${originalSize.toFixed(2)} KB<br>Compressed Size: ${compressedSize.toFixed(2)} KB<br>${reductionText}<br>Compression Level: ${quality}<br>File: ${downloadName}</div>`;
                 let warning = '';
                 if (fileType === 'image/png' && (imageFile.type === 'image/png' || ext === 'png')) {
-                    warning = `<div style="color:#eab308;font-weight:600;margin-bottom:1em;text-align:center;">Warning: PNG is a lossless format and may not compress. For better compression, use JPEG or WebP.</div>`;
+                    warning = `<div class="warning-message">Warning: PNG is a lossless format and may not compress. For better compression, use JPEG or WebP.</div>`;
                 }
                 result.innerHTML = warning + preview + downloadBtn + info;
             } catch (err) {
@@ -417,9 +417,7 @@ function generateQRCode(data, previewDiv, errorDiv) {
         const img = document.createElement('img');
         img.src = qr.toDataURL();
         img.alt = 'QR Code';
-        img.style.maxWidth = '300px';
-        img.style.display = 'block';
-        img.style.margin = '0 auto 1em auto';
+        img.className = 'qr-result-image';
         previewDiv.appendChild(img);
         // Download button
         const downloadBtn = document.createElement('a');
@@ -649,8 +647,25 @@ function setupImageCropperVisual() {
         cropRect.style.pointerEvents = 'auto';
         cropRect.style.zIndex = 2;
         cropRect.parentNode.style.position = 'relative';
+        
+        // Update resize handles positions
+        updateResizeHandles();
+        
         // Draw preview
         updatePreview();
+    }
+    
+    function updateResizeHandles() {
+        const handles = cropRect.querySelectorAll('.resize-handle');
+        const minSizeForHandles = 60; // Hide handles if crop area is too small
+        
+        handles.forEach(handle => {
+            if (crop.w < minSizeForHandles || crop.h < minSizeForHandles) {
+                handle.style.display = 'none';
+            } else {
+                handle.style.display = 'block';
+            }
+        });
     }
 
     function updatePreview() {
@@ -696,38 +711,65 @@ function setupImageCropperVisual() {
         reader.readAsDataURL(file);
     }
 
-    // Drag/resize logic
-    cropRect.addEventListener('mousedown', function(e) {
+    // Helper function to get pointer coordinates
+    function getPointerCoords(e) {
+        if (e.touches && e.touches[0]) {
+            return { x: e.touches[0].clientX, y: e.touches[0].clientY };
+        }
+        return { x: e.clientX, y: e.clientY };
+    }
+
+    // Helper function to handle pointer start
+    function handlePointerStart(e) {
         e.preventDefault();
+        const coords = getPointerCoords(e);
         const rect = cropRect.getBoundingClientRect();
-        const mx = e.clientX - rect.left;
-        const my = e.clientY - rect.top;
-        // Near edges for resizing
-        const edge = 8;
-        if (mx < edge && my < edge) resizeDir = 'nw';
-        else if (mx > rect.width - edge && my < edge) resizeDir = 'ne';
-        else if (mx < edge && my > rect.height - edge) resizeDir = 'sw';
-        else if (mx > rect.width - edge && my > rect.height - edge) resizeDir = 'se';
-        else if (mx < edge) resizeDir = 'w';
-        else if (mx > rect.width - edge) resizeDir = 'e';
-        else if (my < edge) resizeDir = 'n';
-        else if (my > rect.height - edge) resizeDir = 's';
-        else resizeDir = '';
-        if (resizeDir) {
+        const mx = coords.x - rect.left;
+        const my = coords.y - rect.top;
+        
+        // Check if clicking on a resize handle
+        const target = e.target;
+        if (target.classList.contains('resize-handle')) {
+            resizeDir = target.classList[1]; // Get the direction from class (n, s, e, w, ne, nw, se, sw)
             resizing = true;
             dragOffset.x = mx;
             dragOffset.y = my;
         } else {
-            dragging = true;
-            dragOffset.x = e.clientX - crop.x - cropRect.parentNode.getBoundingClientRect().left;
-            dragOffset.y = e.clientY - crop.y - cropRect.parentNode.getBoundingClientRect().top;
+            // Near edges for resizing (fallback for areas without handles)
+            const edge = 15; // Larger edge for touch devices
+            if (mx < edge && my < edge) resizeDir = 'nw';
+            else if (mx > rect.width - edge && my < edge) resizeDir = 'ne';
+            else if (mx < edge && my > rect.height - edge) resizeDir = 'sw';
+            else if (mx > rect.width - edge && my > rect.height - edge) resizeDir = 'se';
+            else if (mx < edge) resizeDir = 'w';
+            else if (mx > rect.width - edge) resizeDir = 'e';
+            else if (my < edge) resizeDir = 'n';
+            else if (my > rect.height - edge) resizeDir = 's';
+            else resizeDir = '';
+            
+            if (resizeDir) {
+                resizing = true;
+                dragOffset.x = mx;
+                dragOffset.y = my;
+            } else {
+                dragging = true;
+                dragOffset.x = coords.x - crop.x - cropRect.parentNode.getBoundingClientRect().left;
+                dragOffset.y = coords.y - crop.y - cropRect.parentNode.getBoundingClientRect().top;
+            }
         }
+        
         document.body.style.userSelect = 'none';
-    });
-    window.addEventListener('mousemove', function(e) {
+        document.body.style.touchAction = 'none';
+    }
+
+    // Helper function to handle pointer move
+    function handlePointerMove(e) {
         if (!dragging && !resizing) return;
+        e.preventDefault();
+        const coords = getPointerCoords(e);
         const parentRect = cropRect.parentNode.getBoundingClientRect();
-        let mx = e.clientX - parentRect.left, my = e.clientY - parentRect.top;
+        let mx = coords.x - parentRect.left, my = coords.y - parentRect.top;
+        
         if (dragging) {
             // Move crop rect
             let nx = mx - dragOffset.x, ny = my - dragOffset.y;
@@ -735,8 +777,7 @@ function setupImageCropperVisual() {
             ny = Math.max(0, Math.min(ny, canvas.height - crop.h));
             crop.x = nx; crop.y = ny;
         } else if (resizing) {
-            let minSize = 20;
-            let ox = crop.x, oy = crop.y, ow = crop.w, oh = crop.h;
+            let minSize = 30; // Larger minimum size for touch devices
             switch (resizeDir) {
                 case 'nw':
                     crop.w += crop.x - mx; crop.h += crop.y - my; crop.x = mx; crop.y = my; break;
@@ -762,10 +803,40 @@ function setupImageCropperVisual() {
             crop.h = Math.max(minSize, Math.min(crop.h, canvas.height - crop.y));
         }
         drawImageAndRect();
-    });
-    window.addEventListener('mouseup', function() {
-        dragging = false; resizing = false; resizeDir = '';
+    }
+
+    // Helper function to handle pointer end
+    function handlePointerEnd(e) {
+        dragging = false; 
+        resizing = false; 
+        resizeDir = '';
         document.body.style.userSelect = '';
+        document.body.style.touchAction = '';
+    }
+
+    // Mouse events
+    cropRect.addEventListener('mousedown', handlePointerStart);
+    window.addEventListener('mousemove', handlePointerMove);
+    window.addEventListener('mouseup', handlePointerEnd);
+
+    // Touch events for mobile devices
+    cropRect.addEventListener('touchstart', handlePointerStart, { passive: false });
+    window.addEventListener('touchmove', handlePointerMove, { passive: false });
+    window.addEventListener('touchend', handlePointerEnd);
+    
+    // Prevent scrolling when interacting with crop area
+    cropRect.addEventListener('touchstart', function(e) {
+        e.stopPropagation();
+    }, { passive: false });
+    
+    // Add visual feedback for touch devices
+    cropRect.addEventListener('touchstart', function() {
+        cropRect.style.transform = 'scale(1.02)';
+        cropRect.style.transition = 'transform 0.1s ease';
+    });
+    
+    cropRect.addEventListener('touchend', function() {
+        cropRect.style.transform = 'scale(1)';
     });
 
     // File input/drag-and-drop integration

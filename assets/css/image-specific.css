@@ -217,6 +217,205 @@
     gap: 2rem;
 }
 
+/* Enhanced Cropping Interface */
+#cropper-visual-area {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius-lg);
+    padding: 1.5rem;
+    backdrop-filter: blur(20px);
+}
+
+#cropper-canvas {
+    border: 2px solid var(--glass-border) !important;
+    border-radius: var(--border-radius);
+    background: var(--background) !important;
+    box-shadow: var(--shadow-sm);
+    touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+#crop-rect {
+    border: 3px dashed var(--primary-color) !important;
+    background: rgba(139, 92, 246, 0.1) !important;
+    cursor: move !important;
+    touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    position: absolute !important;
+    z-index: 10 !important;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3);
+}
+
+/* Resize handles for better touch interaction */
+#crop-rect::before,
+#crop-rect::after {
+    content: '';
+    position: absolute;
+    background: var(--primary-color);
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Corner handles */
+#crop-rect::before {
+    top: -6px;
+    left: -6px;
+    cursor: nw-resize;
+}
+
+#crop-rect::after {
+    bottom: -6px;
+    right: -6px;
+    cursor: se-resize;
+}
+
+/* Edge handles using pseudo-elements on parent */
+#crop-rect {
+    position: relative;
+}
+
+#crop-rect .resize-handle {
+    position: absolute;
+    background: var(--primary-color);
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 11;
+}
+
+#crop-rect .resize-handle.n {
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: n-resize;
+}
+
+#crop-rect .resize-handle.s {
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: s-resize;
+}
+
+#crop-rect .resize-handle.e {
+    right: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: e-resize;
+}
+
+#crop-rect .resize-handle.w {
+    left: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: w-resize;
+}
+
+#crop-rect .resize-handle.ne {
+    top: -6px;
+    right: -6px;
+    cursor: ne-resize;
+}
+
+#crop-rect .resize-handle.nw {
+    top: -6px;
+    left: -6px;
+    cursor: nw-resize;
+}
+
+#crop-rect .resize-handle.se {
+    bottom: -6px;
+    right: -6px;
+    cursor: se-resize;
+}
+
+#crop-rect .resize-handle.sw {
+    bottom: -6px;
+    left: -6px;
+    cursor: sw-resize;
+}
+
+/* Touch-friendly improvements */
+@media (max-width: 768px) {
+    #cropper-canvas {
+        max-width: 100% !important;
+        max-height: 300px !important;
+    }
+    
+    #crop-rect {
+        border-width: 4px !important;
+    }
+    
+    #crop-rect .resize-handle,
+    #crop-rect::before,
+    #crop-rect::after {
+        width: 16px;
+        height: 16px;
+    }
+    
+    #crop-rect .resize-handle.n,
+    #crop-rect .resize-handle.s {
+        transform: translateX(-50%);
+    }
+    
+    #crop-rect .resize-handle.e,
+    #crop-rect .resize-handle.w {
+        transform: translateY(-50%);
+    }
+}
+
+/* Visual feedback for active states */
+#crop-rect:active,
+#crop-rect .resize-handle:active {
+    background: rgba(139, 92, 246, 0.2) !important;
+    border-color: var(--accent-color) !important;
+}
+
+/* Hover effects for better UX */
+#crop-rect:hover {
+    border-color: var(--accent-color) !important;
+    background: rgba(139, 92, 246, 0.15) !important;
+}
+
+#crop-rect .resize-handle:hover {
+    background: var(--accent-color) !important;
+    transform: scale(1.2);
+    transition: transform 0.2s ease;
+}
+
+/* Instructions for users */
+.cropper-instructions {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+.cropper-instructions strong {
+    color: var(--text-primary);
+}
+
+/* Cropped preview styling */
+#cropped-preview {
+    border: 2px solid var(--glass-border) !important;
+    border-radius: var(--border-radius);
+    background: var(--background) !important;
+    box-shadow: var(--shadow-sm);
+}
+
 .crop-options {
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
@@ -424,8 +623,12 @@
     backdrop-filter: blur(20px);
     min-height: 120px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .result-display:empty::before {
@@ -433,6 +636,41 @@
     color: var(--text-secondary);
     font-style: italic;
     text-align: center;
+}
+
+/* Result content styling */
+.result-display img {
+    max-width: 100% !important;
+    max-height: 200px !important;
+    height: auto !important;
+    width: auto !important;
+    display: block !important;
+    margin: 0 auto 1rem auto !important;
+    border-radius: 0.5em !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+.result-display .btn {
+    display: block !important;
+    width: 100% !important;
+    max-width: 300px !important;
+    margin: 1rem auto !important;
+    padding: 0.75rem 1rem !important;
+    font-size: 0.9rem !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+.result-display div {
+    margin-top: 0.5em !important;
+    font-size: 0.9em !important;
+    color: var(--text-secondary) !important;
+    text-align: center !important;
+    line-height: 1.4 !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
 }
 
 .success-message {
@@ -465,6 +703,26 @@
     background: rgba(239, 68, 68, 0.1);
     border: 1px solid rgba(239, 68, 68, 0.2);
     border-radius: var(--border-radius);
+}
+
+.warning-message {
+    color: #eab308;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-align: center;
+    padding: 0.8rem;
+    background: rgba(234, 179, 8, 0.1);
+    border: 1px solid rgba(234, 179, 8, 0.2);
+    border-radius: var(--border-radius);
+    font-size: 0.9rem;
+}
+
+.qr-result-image {
+    max-width: 300px;
+    display: block;
+    margin: 0 auto 1rem auto;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
 }
 
 /* Responsive Design */
@@ -509,6 +767,33 @@
         gap: 1rem;
         align-items: flex-start;
     }
+    
+    /* Mobile result display improvements */
+    .result-display {
+        padding: 1rem;
+        min-height: 100px;
+    }
+    
+    .result-display img {
+        max-width: 100% !important;
+        max-height: 150px !important;
+    }
+    
+    .result-display .btn {
+        max-width: 100% !important;
+        padding: 0.8rem 1rem !important;
+        font-size: 0.95rem !important;
+        margin: 0.8rem auto !important;
+    }
+    
+    .result-display div {
+        font-size: 0.85em !important;
+        padding: 0 0.5rem !important;
+    }
+    
+    .qr-result-image {
+        max-width: 250px !important;
+    }
 }
 
 @media (max-width: 480px) {
@@ -532,6 +817,36 @@
     .qr-code-display {
         max-width: 150px;
         max-height: 150px;
+    }
+    
+    /* Small screen result display improvements */
+    .result-display {
+        padding: 0.8rem;
+        min-height: 80px;
+    }
+    
+    .result-display img {
+        max-width: 100% !important;
+        max-height: 120px !important;
+        margin: 0 auto 0.8rem auto !important;
+    }
+    
+    .result-display .btn {
+        max-width: 100% !important;
+        padding: 0.7rem 0.8rem !important;
+        font-size: 0.9rem !important;
+        margin: 0.7rem auto !important;
+        min-height: 44px !important; /* Touch-friendly minimum height */
+    }
+    
+    .result-display div {
+        font-size: 0.8em !important;
+        padding: 0 0.3rem !important;
+        line-height: 1.3 !important;
+    }
+    
+    .qr-result-image {
+        max-width: 200px !important;
     }
 }
 

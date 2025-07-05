@@ -1675,6 +1675,10 @@ body::after {
         transform: none;
     }
     
+    .tool-card:hover::before {
+        opacity: 0.02;
+    }
+    
     .tool-card:active {
         transform: scale(0.98);
     }

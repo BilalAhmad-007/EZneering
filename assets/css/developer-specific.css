@@ -1003,6 +1003,37 @@
         gap: 0.5rem;
     }
     
+    /* Even shorter abbreviations for very small screens */
+    .tab-btn[data-tab="language-converter"] span:not(.tab-icon)::after {
+        content: "Lang";
+    }
+    .tab-btn[data-tab="expression-converter"] span:not(.tab-icon)::after {
+        content: "Expr";
+    }
+    .tab-btn[data-tab="expression-tree"] span:not(.tab-icon)::after {
+        content: "Tree";
+    }
+    .tab-btn[data-tab="bst-converter"] span:not(.tab-icon)::after {
+        content: "BST";
+    }
+    .tab-btn[data-tab="normalization"] span:not(.tab-icon)::after {
+        content: "Norm";
+    }
+    .tab-btn[data-tab="nfa-dfa"] span:not(.tab-icon)::after {
+        content: "NFA";
+    }
+    .tab-btn[data-tab="kmap-solver"] span:not(.tab-icon)::after {
+        content: "K-map";
+    }
+    
+    /* Hide original text */
+    .tab-btn span:not(.tab-icon) {
+        font-size: 0;
+    }
+    .tab-btn span:not(.tab-icon)::after {
+        font-size: 0.7rem;
+    }
+    
     .code-editor {
         min-height: 160px;
         font-size: 0.75rem;
@@ -1040,9 +1071,48 @@
         padding: 0.3rem 0.5rem;
     }
     
+    .tool-nav {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        margin-bottom: 1rem;
+        padding: 0.2rem 0;
+        box-sizing: border-box;
+        gap: 0.2rem;
+        justify-content: flex-start;
+    }
+    .tool-nav::-webkit-scrollbar {
+        display: none;
+    }
     .tab-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 90px;
+        max-width: 110px;
+        white-space: nowrap;
+        margin-right: 0;
+        flex: 0 0 auto;
         padding: 0.35rem 0.5rem;
-        font-size: 0.75rem;
+        font-size: 0.7rem;
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: keep-all;
+    }
+    .tab-btn span:not(.tab-icon) {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-width: 100%;
+    }
+    .tab-icon {
+        font-size: 0.8rem;
+        margin-right: 0.15rem;
+        flex-shrink: 0;
     }
     
     .kmap-table th,
@@ -1105,6 +1175,67 @@
     .sticky-nav {
         top: 50px;
         padding: 0.3rem 0.75rem;
+    }
+    
+    /* Normalization checker landscape improvements */
+    .normalization-container {
+        gap: 1rem;
+    }
+    
+    .fd-item {
+        flex-direction: row;
+        align-items: center;
+        gap: 0.8rem;
+        padding: 0.8rem;
+    }
+    
+    .fd-inputs {
+        flex-direction: row;
+        gap: 0.8rem;
+        flex: 1;
+    }
+    
+    .fd-left-container, .fd-right-container {
+        min-width: 120px;
+    }
+    
+    .fd-arrow {
+        margin: 0;
+    }
+    
+    .remove-fd-btn {
+        align-self: center;
+        margin-top: 0;
+    }
+    
+    .remove-fd-btn {
+        font-size: 14px;
+        font-weight: bold;
+        color: #ef4444 !important;
+    }
+    
+    .normalization-stepper {
+        margin: 1rem 0;
+        gap: 0.3rem;
+    }
+    
+    .step-circle {
+        width: 32px;
+        height: 32px;
+        font-size: 0.85rem;
+    }
+    
+    .step span {
+        font-size: 0.75rem;
+    }
+    
+    .normalization-result-section {
+        padding: 1.2rem 1rem;
+    }
+    
+    .normalization-result-section .result-display {
+        padding: 0.8rem;
+        font-size: 0.9rem;
     }
 }
 
@@ -1435,6 +1566,8 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 .fd-list {
     margin-top: 1rem;
@@ -1450,21 +1583,25 @@
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
     box-shadow: var(--shadow-sm);
+    flex-wrap: wrap;
 }
 .fd-inputs {
     display: flex;
     align-items: center;
     gap: 1rem;
     width: 100%;
+    flex-wrap: wrap;
 }
 .fd-left-container, .fd-right-container {
     flex: 1;
+    min-width: 200px;
 }
 .fd-left-container label, .fd-right-container label {
     font-weight: 600;
     display: block;
     margin-bottom: 0.25rem;
     color: var(--text-primary);
+    font-size: 0.9rem;
 }
 .fd-left, .fd-right {
     width: 100%;
@@ -1476,6 +1613,8 @@
     color: var(--text-primary);
     outline: none;
     transition: border 0.2s;
+    min-height: 44px;
+    box-sizing: border-box;
 }
 .fd-left:focus, .fd-right:focus {
     border-color: var(--primary-color);
@@ -1484,10 +1623,105 @@
 .fd-arrow {
     font-size: 1.5rem;
     color: var(--primary-color);
+    flex-shrink: 0;
 }
 .format-hint {
     color: var(--primary-color);
     font-weight: 500;
+    font-size: 0.9rem;
+}
+
+/* Remove button styling */
+.remove-fd-btn {
+    background: var(--glass-bg);
+    color: var(--error-color);
+    border: 1.5px solid var(--glass-border);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: background 0.2s, color 0.2s, border 0.2s, transform 0.2s;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+.remove-fd-btn:hover {
+    background: var(--error-color);
+    color: #fff;
+    border-color: var(--error-color);
+    box-shadow: 0 2px 8px rgba(239,68,68,0.15);
+    transform: scale(1.05);
+}
+
+.remove-fd-btn:active {
+    transform: scale(0.95);
+}
+
+.remove-fd-btn {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ef4444 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Stepper improvements for mobile */
+.normalization-stepper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1;
+    min-width: 80px;
+}
+
+.step-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--glass-bg);
+    border: 2px solid var(--glass-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+}
+
+.step-circle.step-active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.stepper-line {
+    height: 2px;
+    background: var(--glass-border);
+    flex: 1;
+    min-width: 20px;
+    max-width: 60px;
+}
+
+.step span {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-align: center;
+    line-height: 1.2;
 }
 
 /* Normalization Result Section - Spacing Improvements */
@@ -1662,6 +1896,128 @@
     color: var(--primary-color);
     font-weight: 600;
 }
+/* Mobile responsive styles for normalization checker */
+@media (max-width: 768px) {
+    .normalization-container {
+        gap: 1.5rem;
+    }
+    
+    .fd-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.8rem;
+    }
+    
+    .fd-header h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .add-fd-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 0.8rem 1rem;
+        font-size: 0.95rem;
+    }
+    
+    .fd-item {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.8rem;
+        padding: 1rem;
+    }
+    
+    .fd-inputs {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    .fd-left-container, .fd-right-container {
+        min-width: auto;
+        width: 100%;
+    }
+    
+    .fd-arrow {
+        align-self: center;
+        margin: 0.5rem 0;
+    }
+    
+    .remove-fd-btn {
+        align-self: flex-end;
+        margin-top: 0.5rem;
+    }
+    
+    .normalization-stepper {
+        margin: 1.5rem 0;
+        gap: 0.3rem;
+    }
+    
+    .step {
+        min-width: 60px;
+    }
+    
+    .step-circle {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+    
+    .step span {
+        font-size: 0.8rem;
+    }
+    
+    .stepper-line {
+        min-width: 15px;
+        max-width: 40px;
+    }
+    
+    .check-normalization-section {
+        margin: 1.5rem 0;
+    }
+    
+    .check-btn {
+        width: 100%;
+        padding: 1rem;
+        font-size: 1rem;
+        justify-content: center;
+    }
+    
+    .normalization-result-section {
+        padding: 1.5rem 1rem;
+        margin-top: 1.5rem;
+    }
+    
+    .normalization-result-section h3 {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .normalization-result-section .result-display {
+        padding: 1rem;
+        font-size: 0.95rem;
+        min-height: 80px;
+    }
+    
+    .normalization-result-section .analysis-result {
+        gap: 1.5rem;
+    }
+    
+    .fd-display, .pk-item, .norm-check, .recommendation {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .format-hint {
+        font-size: 0.85rem;
+        text-align: center;
+        display: block;
+        margin-top: 0.5rem;
+    }
+}
+
 @media (max-width: 600px) {
     .normalization-result-section {
         padding: 1.2rem 0.5rem;
@@ -1676,6 +2032,141 @@
     .fd-display, .pk-item, .norm-check, .recommendation {
         padding: 0.7rem 0.5rem;
         font-size: 0.97rem;
+    }
+    
+    .fd-item {
+        padding: 0.8rem;
+    }
+    
+    .fd-left, .fd-right {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.95rem;
+        min-height: 40px;
+    }
+    
+    .step-circle {
+        width: 30px;
+        height: 30px;
+        font-size: 0.8rem;
+    }
+    
+    .step span {
+        font-size: 0.75rem;
+    }
+    
+    .check-btn {
+        padding: 0.8rem;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .normalization-container {
+        gap: 1rem;
+    }
+    
+    .fd-header h3 {
+        font-size: 1rem;
+    }
+    
+    .add-fd-btn {
+        padding: 0.7rem 0.8rem;
+        font-size: 0.9rem;
+    }
+    
+    .fd-item {
+        padding: 0.7rem;
+        gap: 0.6rem;
+    }
+    
+    .fd-inputs {
+        gap: 0.6rem;
+    }
+    
+    .fd-left-container label, .fd-right-container label {
+        font-size: 0.85rem;
+        margin-bottom: 0.2rem;
+    }
+    
+    .fd-left, .fd-right {
+        padding: 0.5rem 0.7rem;
+        font-size: 0.9rem;
+        min-height: 38px;
+    }
+    
+    .fd-arrow {
+        font-size: 1.2rem;
+        margin: 0.3rem 0;
+    }
+    
+    .remove-fd-btn {
+        padding: 0.4rem;
+        width: 32px;
+        height: 32px;
+    }
+    
+    .remove-fd-btn {
+        font-size: 16px;
+        font-weight: bold;
+        color: #ef4444 !important;
+    }
+    
+    .normalization-stepper {
+        margin: 1rem 0;
+        gap: 0.2rem;
+    }
+    
+    .step {
+        min-width: 50px;
+    }
+    
+    .step-circle {
+        width: 28px;
+        height: 28px;
+        font-size: 0.75rem;
+    }
+    
+    .step span {
+        font-size: 0.7rem;
+    }
+    
+    .stepper-line {
+        min-width: 10px;
+        max-width: 30px;
+    }
+    
+    .check-btn {
+        padding: 0.7rem;
+        font-size: 0.9rem;
+        min-height: 44px;
+    }
+    
+    .normalization-result-section {
+        padding: 1rem 0.5rem;
+    }
+    
+    .normalization-result-section h3 {
+        font-size: 1rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .normalization-result-section .result-display {
+        padding: 0.8rem 0.5rem;
+        font-size: 0.9rem;
+        min-height: 70px;
+    }
+    
+    .normalization-result-section .analysis-result {
+        gap: 1rem;
+    }
+    
+    .fd-display, .pk-item, .norm-check, .recommendation {
+        padding: 0.6rem 0.5rem;
+        font-size: 0.85rem;
+    }
+    
+    .format-hint {
+        font-size: 0.8rem;
     }
 }
 
@@ -1928,6 +2419,8 @@
     gap: 0.5rem;
     margin-bottom: 3rem;
     flex-wrap: wrap;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
 }
 
 .tab-btn {
@@ -1940,6 +2433,9 @@
     transition: var(--transition);
     font-weight: 500;
     backdrop-filter: blur(20px);
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    user-select: none;
 }
 
 .tab-btn:hover {
@@ -2083,26 +2579,78 @@
         white-space: nowrap;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
-        margin-bottom: 1rem;
-        padding-left: 0;
-        padding-right: 0;
+        margin-bottom: 1.5rem;
+        padding: 0.5rem 0;
         box-sizing: border-box;
+        gap: 0.5rem;
+        justify-content: flex-start;
     }
     .tool-nav::-webkit-scrollbar {
         display: none;
     }
     .tab-btn {
         display: inline-flex;
+        align-items: center;
+        justify-content: center;
         min-width: 120px;
+        max-width: 140px;
         white-space: nowrap;
-        margin-right: 0.5rem;
+        margin-right: 0;
         flex: 0 0 auto;
+        padding: 0.6rem 0.8rem;
+        font-size: 0.8rem;
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: keep-all;
+    }
+    .tab-btn span:not(.tab-icon) {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-width: 100%;
+    }
+    .tab-icon {
+        font-size: 1rem;
+        margin-right: 0.3rem;
+        flex-shrink: 0;
     }
 }
 
 @media (max-width: 480px) {
     .tool-page-title {
         font-size: 1.75rem;
+    }
+    
+    /* Abbreviate long button text on small screens */
+    .tab-btn[data-tab="language-converter"] span:not(.tab-icon)::after {
+        content: "Lang Conv";
+    }
+    .tab-btn[data-tab="expression-converter"] span:not(.tab-icon)::after {
+        content: "Expr Conv";
+    }
+    .tab-btn[data-tab="expression-tree"] span:not(.tab-icon)::after {
+        content: "Expr Tree";
+    }
+    .tab-btn[data-tab="bst-converter"] span:not(.tab-icon)::after {
+        content: "BST";
+    }
+    .tab-btn[data-tab="normalization"] span:not(.tab-icon)::after {
+        content: "Norm";
+    }
+    .tab-btn[data-tab="nfa-dfa"] span:not(.tab-icon)::after {
+        content: "NFA/DFA";
+    }
+    .tab-btn[data-tab="kmap-solver"] span:not(.tab-icon)::after {
+        content: "K-map";
+    }
+    
+    /* Hide original text */
+    .tab-btn span:not(.tab-icon) {
+        font-size: 0;
+    }
+    .tab-btn span:not(.tab-icon)::after {
+        font-size: 0.75rem;
     }
     .tool-nav {
         display: flex;
@@ -2112,19 +2660,40 @@
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
         margin-bottom: 1rem;
-        padding-left: 0;
-        padding-right: 0;
+        padding: 0.3rem 0;
         box-sizing: border-box;
+        gap: 0.3rem;
+        justify-content: flex-start;
     }
     .tool-nav::-webkit-scrollbar {
         display: none;
     }
     .tab-btn {
         display: inline-flex;
-        min-width: 120px;
+        align-items: center;
+        justify-content: center;
+        min-width: 100px;
+        max-width: 120px;
         white-space: nowrap;
-        margin-right: 0.5rem;
+        margin-right: 0;
         flex: 0 0 auto;
+        padding: 0.5rem 0.6rem;
+        font-size: 0.75rem;
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: keep-all;
+    }
+    .tab-btn span:not(.tab-icon) {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-width: 100%;
+    }
+    .tab-icon {
+        font-size: 0.9rem;
+        margin-right: 0.2rem;
+        flex-shrink: 0;
     }
 }
 
