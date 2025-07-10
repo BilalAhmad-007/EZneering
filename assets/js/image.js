@@ -627,6 +627,14 @@ function setupImageCropperVisual() {
         resultDiv.innerHTML = '';
     }
 
+    function clampCropToCanvas() {
+        // Ensure crop box stays within canvas
+        crop.x = Math.max(0, Math.min(crop.x, canvas.width - crop.w));
+        crop.y = Math.max(0, Math.min(crop.y, canvas.height - crop.h));
+        crop.w = Math.max(30, Math.min(crop.w, canvas.width - crop.x));
+        crop.h = Math.max(30, Math.min(crop.h, canvas.height - crop.y));
+    }
+
     function drawImageAndRect() {
         if (!img) return;
         // Fit image to canvas
@@ -635,22 +643,26 @@ function setupImageCropperVisual() {
         scale = ratio;
         canvas.width = Math.round(img.width * ratio);
         canvas.height = Math.round(img.height * ratio);
+        // Clamp crop to canvas after resizing
+        clampCropToCanvas();
         const ctx = canvas.getContext('2d');
         ctx.clearRect(0,0,canvas.width,canvas.height);
         ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
         // Draw crop rect overlay
         cropRect.style.display = 'block';
+        cropRect.style.position = 'absolute';
         cropRect.style.left = crop.x + 'px';
         cropRect.style.top = crop.y + 'px';
         cropRect.style.width = crop.w + 'px';
         cropRect.style.height = crop.h + 'px';
         cropRect.style.pointerEvents = 'auto';
         cropRect.style.zIndex = 2;
-        cropRect.parentNode.style.position = 'relative';
-        
+        // Ensure parent is relative
+        if (cropRect.parentNode && cropRect.parentNode.style.position !== 'relative') {
+            cropRect.parentNode.style.position = 'relative';
+        }
         // Update resize handles positions
         updateResizeHandles();
-        
         // Draw preview
         updatePreview();
     }
@@ -797,10 +809,7 @@ function setupImageCropperVisual() {
                     crop.w = mx - crop.x; break;
             }
             // Clamp
-            crop.x = Math.max(0, Math.min(crop.x, canvas.width - minSize));
-            crop.y = Math.max(0, Math.min(crop.y, canvas.height - minSize));
-            crop.w = Math.max(minSize, Math.min(crop.w, canvas.width - crop.x));
-            crop.h = Math.max(minSize, Math.min(crop.h, canvas.height - crop.y));
+            clampCropToCanvas();
         }
         drawImageAndRect();
     }

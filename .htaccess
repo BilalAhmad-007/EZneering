@@ -1,4 +1,4 @@
-# EZneering .htaccess - SEO and Performance Optimization
+# EZneers .htaccess - SEO and Performance Optimization
 
 # Enable Gzip Compression
 <IfModule mod_deflate.c>

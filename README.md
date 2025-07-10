@@ -1,9 +1,9 @@
-# EZneering
+# EZneers
 Professional tools for engineers, developers, and students. Convert units, calculate equations, process images, and more - all in one place.
 
-## About EZneering
+## About EZneers
 
-EZneering is a free online platform offering a comprehensive suite of professional tools for engineers, developers, students, and anyone who needs quick, reliable utilities. The website brings together a wide range of calculators, converters, and productivity tools, all accessible from your browser with no installation required.
+EZneers is a free online platform offering a comprehensive suite of professional tools for engineers, developers, students, and anyone who needs quick, reliable utilities. The website brings together a wide range of calculators, converters, and productivity tools, all accessible from your browser with no installation required.
 
 ### Key Features
 - **Completely Free:** All tools are available at no cost, with no registration required.
@@ -89,4 +89,4 @@ Powerful utilities for writers, editors, and developers:
 
 ---
 
-EZneering is designed and maintained by Bilal Ahmad. For feedback, suggestions, or contributions, please reach out via email or GitHub.
+EZneers is designed and maintained by Bilal Ahmad. For feedback, suggestions, or contributions, please reach out via email or GitHub.

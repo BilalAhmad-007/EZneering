@@ -1,5 +1,5 @@
-// Main JavaScript for EZneering
-class EZneeringApp {
+// Main JavaScript for EZneers
+class EZneersApp {
     constructor() {
         this.tools = [
             {
@@ -66,8 +66,8 @@ class EZneeringApp {
                 category: 'Math & Calculators',
                 icon: '🧮',
                 title: 'Math & Calculators',
-                description: 'Scientific calculator, equation solver, matrix calculator, statistics, area/volume calculator, and binary calculator.',
-                count: '6 tools',
+                description: 'Scientific calculator, equation solver, matrix calculator, statistics, area/volume calculator, binary calculator, age calculator, and BMI calculator.',
+                count: '8 tools',
                 url: 'tools/math.html',
                 tools: [
                     'Scientific Calculator',
@@ -75,7 +75,9 @@ class EZneeringApp {
                     'Matrix Calculator',
                     'Statistics',
                     'Area/Volume Calculator',
-                    'Binary Calculator'
+                    'Binary Calculator',
+                    'Age Calculator',
+                    'BMI Calculator'
                 ]
             },
             {
@@ -381,7 +383,7 @@ class EZneeringApp {
 
 // Initialize the app when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    new EZneeringApp();
+    new EZneersApp();
 });
 
 // Add CSS for mobile menu and no results
